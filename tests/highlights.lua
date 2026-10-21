@@ -25,6 +25,8 @@ for _, mode in ipairs({ 'dark', 'light', 'dark', 'light' }) do
   eq(hl('BlinkCmpKindFunction').fg, hex(c.type), 'blink function kind')
   eq(hl('CmpItemMenu').fg, hex(c.muted), 'cmp source')
   eq(hl('@constructor.lua').fg, hex(c.punctuation), 'Lua braces')
+  eq(hl('luaTable').fg, hex(c.punctuation), 'legacy Lua braces')
+  eq(hl('luaFunction').fg, hex(c.keyword), 'legacy Lua declaration')
   eq(hl('@keyword.conditional').bold or false, mode == 'light', 'control-flow emphasis')
   eq(hl('@keyword.function').bold or false, false, 'declaration weight')
   eq(hl('DiagnosticUnderlineError').undercurl, true, 'diagnostic shape cue')

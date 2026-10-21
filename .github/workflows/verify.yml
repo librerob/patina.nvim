@@ -17,6 +17,7 @@ jobs:
       - run: python tests/contrast.py
   neovim:
     runs-on: ubuntu-latest
+    timeout-minutes: 8
     strategy:
       fail-fast: false
       matrix:

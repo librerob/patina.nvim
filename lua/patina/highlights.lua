@@ -48,6 +48,11 @@ function M.get(c, opts)
   hl("Special", { fg = c.func }); link("SpecialChar", "Special"); hl("Tag", { fg = c.keyword })
   hl("Delimiter", { fg = c.punctuation }); hl("SpecialComment", { fg = c.comment }); hl("Debug", { fg = c.warning })
   hl("Error", { fg = c.error })
+  -- The built-in Lua syntax links declarations to Function and braces to Type.
+  -- Keep these roles consistent with the Treesitter palette.
+  link("luaFunction", "Keyword")
+  link("luaTable", "Delimiter")
+  link("luaFunc", "Function")
 
   -- Treesitter
   hl("@variable", { fg = c.variable }); hl("@variable.builtin", { fg = c.type }); hl("@variable.parameter", { fg = c.variable })

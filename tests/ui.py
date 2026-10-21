@@ -168,6 +168,9 @@ def run():
                 n.command('normal! gg')
                 snapshot = n.snapshot()
                 assert find(snapshot, Path(filename).stem) or len(set(ident for row in snapshot[0] for ch, ident in row if ch.strip())) >= 4
+                if filename == 'library.lua':
+                    assert_pair(snapshot, 'function', c['keyword'], c['bg'])
+                    assert n.lua("return vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.synID(1,17,1)), 'fg#')").upper() == c['punctuation'], 'legacy Lua brace color'
                 path = OUT / f'{mode}-{Path(filename).suffix[1:]}.png'
                 render(snapshot, path)
                 captures.append(path.name)
@@ -193,6 +196,8 @@ def run():
             n.request('nvim_input', '\x0e')
             snapshot = n.snapshot()
             assert find(snapshot, 'Function') and find(snapshot, '[LSP]'), 'completion columns missing'
+            selected_bg = int(c['menu_selection'][1:], 16)
+            assert any(all(bg == selected_bg for fg, bg in match) for label in ('Function', 'Variable') for match in find(snapshot, label)), 'selected completion kind was not tested'
             for label in ('Function', '[LSP]'):
                 for match in find(snapshot, label):
                     assert all(contrast(rgb(fg), rgb(bg)) >= 4.5 for fg, bg in match), f'{mode}: unreadable {label}'
