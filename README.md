@@ -12,11 +12,13 @@
 
 <p align="center"><strong>Dark</strong> · deep teal, copper keywords, and soft brass strings.</p>
 
-![Verdelle Dark](assets/verdelle-dark.png)
+![Verdelle Dark in Neovim](assets/neovim-dark-lua.png)
 
 <p align="center"><strong>Light</strong> · bone paper, terracotta keywords, and verdigris functions.</p>
 
-![Verdelle Light](assets/verdelle-light.png)
+![Verdelle Light in Neovim](assets/neovim-light-lua.png)
+
+Previews render Neovim's actual screen cells with the built-in Lua syntax. They are not terminal screenshots. [Palette and interface specimens](docs/PREVIEWS.md).
 
 ## Install
 
