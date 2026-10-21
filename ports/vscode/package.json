@@ -1,0 +1,32 @@
+{
+  "name": "verdelle-theme",
+  "displayName": "Verdelle",
+  "description": "Copper and verdigris, on ink and paper. Dark and light colors.",
+  "version": "0.1.0",
+  "publisher": "librerob",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/librerob/verdelle"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Verdelle Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/verdelle-color-theme.json"
+      },
+      {
+        "label": "Verdelle Light",
+        "uiTheme": "vs",
+        "path": "./themes/verdelle-light-color-theme.json"
+      }
+    ]
+  }
+}

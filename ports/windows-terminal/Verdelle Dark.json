@@ -1,0 +1,23 @@
+{
+  "name": "Verdelle Dark",
+  "background": "#101F20",
+  "foreground": "#ECEADF",
+  "cursorColor": "#ECEADF",
+  "selectionBackground": "#3C7274",
+  "black": "#1B2F31",
+  "red": "#FE6266",
+  "green": "#7CCD8E",
+  "yellow": "#C8BB83",
+  "blue": "#85AFE0",
+  "purple": "#D683B6",
+  "cyan": "#7BCBB3",
+  "white": "#D4D1C4",
+  "brightBlack": "#7C9CA0",
+  "brightRed": "#FF8A88",
+  "brightGreen": "#8CE6A0",
+  "brightYellow": "#FFE891",
+  "brightBlue": "#72B8F2",
+  "brightPurple": "#FCA9BB",
+  "brightCyan": "#92EBDA",
+  "brightWhite": "#F9F7EF"
+}

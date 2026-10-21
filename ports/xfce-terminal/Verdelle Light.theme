@@ -1,0 +1,16 @@
+[Scheme]
+Name=Verdelle Light
+ColorForeground=#132B2D
+ColorBackground=#F6F4EB
+ColorCursor=#132B2D
+ColorCursorForeground=#F6F4EB
+ColorCursorUseDefault=FALSE
+ColorSelection=#FBFAF6
+ColorSelectionBackground=#39716C
+ColorSelectionUseDefault=FALSE
+ColorPalette=#132B2D;#B92935;#2E663C;#7A5C15;#255098;#604061;#0E6C5F;#566769;#45676B;#93031E;#1B552C;#625601;#024B79;#812258;#025449;#314042
+ColorBoldUseDefault=TRUE
+ColorBoldIsBright=FALSE
+ColorUseTheme=FALSE
+ColorBackgroundVary=FALSE
+TabActivityColor=#0E6C5F

@@ -1,0 +1,16 @@
+[Scheme]
+Name=Verdelle Dark
+ColorForeground=#ECEADF
+ColorBackground=#101F20
+ColorCursor=#ECEADF
+ColorCursorForeground=#101F20
+ColorCursorUseDefault=FALSE
+ColorSelection=#F9F7EF
+ColorSelectionBackground=#3C7274
+ColorSelectionUseDefault=FALSE
+ColorPalette=#1B2F31;#FE6266;#7CCD8E;#C8BB83;#85AFE0;#D683B6;#7BCBB3;#D4D1C4;#7C9CA0;#FF8A88;#8CE6A0;#FFE891;#72B8F2;#FCA9BB;#92EBDA;#F9F7EF
+ColorBoldUseDefault=TRUE
+ColorBoldIsBright=FALSE
+ColorUseTheme=FALSE
+ColorBackgroundVary=FALSE
+TabActivityColor=#7BCBB3

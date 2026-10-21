@@ -1,0 +1,23 @@
+{
+  "name": "Verdelle Light",
+  "background": "#F6F4EB",
+  "foreground": "#132B2D",
+  "cursorColor": "#132B2D",
+  "selectionBackground": "#39716C",
+  "black": "#132B2D",
+  "red": "#B92935",
+  "green": "#2E663C",
+  "yellow": "#7A5C15",
+  "blue": "#255098",
+  "purple": "#604061",
+  "cyan": "#0E6C5F",
+  "white": "#566769",
+  "brightBlack": "#45676B",
+  "brightRed": "#93031E",
+  "brightGreen": "#1B552C",
+  "brightYellow": "#625601",
+  "brightBlue": "#024B79",
+  "brightPurple": "#812258",
+  "brightCyan": "#025449",
+  "brightWhite": "#314042"
+}

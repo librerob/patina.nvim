@@ -16,6 +16,8 @@ jobs:
         with:
           python-version: '3.12'
       - run: python tools/build.py --check
+      - run: python tests/ports.py
+      - run: python tests/bat.py
       - run: python tests/contrast.py
       - run: python tests/color_math_test.py
       - run: python tools/colorvision.py --check
@@ -59,9 +61,163 @@ jobs:
       - run: nvim --headless -u NONE -l tests/highlights.lua
       - run: python -m pip install pillow msgpack
       - run: python tests/ui.py
+      - name: Install lualine and Telescope fixtures
+        run: |
+          git clone --depth=1 https://github.com/nvim-lualine/lualine.nvim.git "$RUNNER_TEMP/lualine"
+          git clone --depth=1 https://github.com/nvim-lua/plenary.nvim.git "$RUNNER_TEMP/plenary"
+          git clone --depth=1 --branch 0.1.8 https://github.com/nvim-telescope/telescope.nvim.git "$RUNNER_TEMP/telescope"
+      - run: nvim --headless -u NONE -l tests/plugins.lua
+      - name: Install explorer and completion fixtures
+        if: matrix.version == 'stable'
+        run: |
+          git clone --depth=1 https://github.com/stevearc/oil.nvim.git "$RUNNER_TEMP/oil"
+          git clone --depth=1 https://github.com/MunifTanjim/nui.nvim.git "$RUNNER_TEMP/nui"
+          git clone --depth=1 --branch v3.x https://github.com/nvim-neo-tree/neo-tree.nvim.git "$RUNNER_TEMP/neo-tree"
+          git clone --depth=1 https://github.com/folke/which-key.nvim.git "$RUNNER_TEMP/which-key"
+          git clone --depth=1 https://github.com/folke/snacks.nvim.git "$RUNNER_TEMP/snacks"
+          git clone --depth=1 https://github.com/lewis6991/gitsigns.nvim.git "$RUNNER_TEMP/gitsigns"
+          git clone --depth=1 https://github.com/hrsh7th/nvim-cmp.git "$RUNNER_TEMP/cmp"
+          git clone --depth=1 --branch v1 https://github.com/Saghen/blink.cmp.git "$RUNNER_TEMP/blink"
+      - name: Check explorer and completion plugins
+        if: matrix.version == 'stable'
+        run: nvim --headless -u NONE -l tests/plugin_extras.lua
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: neovim-${{ matrix.version }}
           path: test-results/
-
+  vim-and-foot:
+    timeout-minutes: 12
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-22.04, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Vim and foot
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y vim-nox foot
+          vim --version | head -n 3
+          foot --version
+      - name: Check Vim loading, reloading and variant switching
+        run: vim -Nu NONE -n -es -S tests/vim.vim
+      - name: Check foot configuration with its native parser
+        run: |
+          version=$(foot --version | sed -nE 's/^foot version: ([0-9]+)\.([0-9]+).*/\1 \2/p')
+          read -r major minor <<< "$version"
+          if (( major > 1 || (major == 1 && minor >= 26) )); then
+            foot --check-config --config ports/foot/verdelle.ini
+          else
+            foot --check-config --config ports/foot/verdelle-legacy.ini
+            foot --check-config --config ports/foot/verdelle-light-legacy.ini
+          fi
+  apps:
+    timeout-minutes: 12
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-22.04, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: doomemacs/themes
+          ref: a59202912ad55014e53a685eee6cd94130bdd4fd
+          path: .ci/doom-themes
+          persist-credentials: false
+      - name: Install application test tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y bat emacs-nox ruby ruby-dev
+          sudo gem install --no-document colorls --version 1.5.0
+          emacs --version | head -n 1
+          batcat --version
+      - name: Check Base16 YAML and native colorls loading
+        run: ruby tests/apps.rb --colorls
+      - name: Check native bat cache and syntax rendering
+        if: ${{ !cancelled() }}
+        run: python3 tests/bat.py --bat batcat
+      - name: Check native Emacs and Doom theme loading
+        if: ${{ !cancelled() }}
+        env:
+          DOOM_THEMES_DIR: ${{ github.workspace }}/.ci/doom-themes
+        run: emacs -Q --batch -l tests/emacs.el -f ert-run-tests-batch-and-exit
+  terminals:
+    timeout-minutes: 12
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install terminals
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y kitty alacritty xfce4-terminal konsole xvfb dbus-x11 python3-pil shellcheck
+      - name: Query colors inside the running terminals
+        if: ${{ !cancelled() }}
+        run: dbus-run-session -- xvfb-run -a python3 tests/terminals.py
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: terminal-swatches
+          path: test-results/*.png
+  vscode:
+    timeout-minutes: 12
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        version: [1.85.2, stable]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install official VS Code test tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y xvfb libasound2t64 libgbm1
+          npm install --prefix "$RUNNER_TEMP/verdelle-node" --no-audit --no-fund @vscode/test-electron@2.5.2 vscode-textmate@9.2.0 vscode-oniguruma@2.0.1
+      - name: Load both themes and inspect resolved colors and syntax
+        env:
+          VERDELLE_NODE_MODULES: ${{ runner.temp }}/verdelle-node/node_modules
+          VERDELLE_VSCODE_VERSION: ${{ matrix.version }}
+        run: xvfb-run -a node tests/vscode.cjs
+  ghostty:
+    timeout-minutes: 12
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install official Ghostty binary through Homebrew
+        run: brew install --cask ghostty
+      - name: Validate both variants with Ghostty
+        run: |
+          /Applications/Ghostty.app/Contents/MacOS/ghostty +version
+          /Applications/Ghostty.app/Contents/MacOS/ghostty +validate-config --config-file="ports/ghostty/Verdelle Dark"
+          /Applications/Ghostty.app/Contents/MacOS/ghostty +validate-config --config-file="ports/ghostty/Verdelle Light"
+  foot-current:
+    timeout-minutes: 12
+    runs-on: ubuntu-latest
+    container: archlinux:base-devel
+    steps:
+      - name: Install current foot from the official Arch repository
+        run: pacman -Syu --noconfirm git foot ttf-dejavu
+      - uses: actions/checkout@v4
+      - name: Check both modern color sections with foot
+        run: |
+          foot --version
+          foot --check-config --config ports/foot/verdelle.ini
+  windows-terminal-schema:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install jsonschema
+      - name: Validate schemes against the official schema
+        run: |
+          curl --fail --location --retry 2 https://raw.githubusercontent.com/microsoft/terminal/main/doc/cascadia/profiles.schema.json -o "$RUNNER_TEMP/terminal-schema.json"
+          python tests/windows_terminal.py "$RUNNER_TEMP/terminal-schema.json"

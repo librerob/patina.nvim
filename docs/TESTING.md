@@ -6,7 +6,7 @@
 - Completion label, match, kind, and detail colors on normal and selected menu surfaces.
 - Dedicated visual-selection and search pairs, and all lualine mode accents.
 
-Every tested text pair must reach 4.5:1. Visual selection must also differ from the main editor background by at least 3:1. The comments/punctuation/operators/text luminance order is tested separately. ANSI slots 1 through 15 must reach 4.5:1 against the terminal background; ANSI slot 0 is an exempt utility black. All six generated terminal ports are parsed and compared with the source palettes.
+Every tested text pair must reach 4.5:1. Visual selection must also differ from the main editor background by at least 3:1. The comments/punctuation/operators/text luminance order is tested separately. ANSI slots 1 through 15 must reach 4.5:1 against the terminal background; ANSI slot 0 is an exempt utility black. The original six terminal files are parsed here. `tests/ports.py` also parses Windows Terminal, Xfce, Konsole, foot, and VS Code, comparing both variants with the source palettes.
 
 `python tools/build.py --check` detects stale generated files.
 
@@ -20,14 +20,28 @@ The README code views are Neovim cell-grid captures. The separate palette/interf
 
 `tests/kitty.py` starts the real Kitty terminal under Xvfb with each generated theme, renders truecolor syntax samples and all 16 ANSI slots, and captures the window. It requires the configured RGB values to appear in the actual pixels, including a substantial themed background. The screenshots are saved in the Kitty CI artifact. This validates one real terminal renderer rather than inferring terminal behavior solely from a configuration parser.
 
+## Application ports
+
+All 15 supported targets have dark and light variants. `tools/build.py --check` verifies every generated file without modifying the checkout. The Vim port reads the shared Neovim core definitions; all other ports read the palette JSON files directly.
+
+- Vim loads the theme, checks effective syntax/UI colors, selection, diffs, ANSI slots, optional styles, repeated loads, and automatic background switching on Ubuntu 22.04 and current Ubuntu.
+- VS Code 1.85.2 and stable load an installed local extension in a disposable profile. Tests switch dark/light/dark, inspect resolved workbench CSS colors, and tokenize Lua, Python, and TypeScript with the bundled grammars and official TextMate engine.
+- Kitty, Alacritty, and Xfce run under Xvfb and report their foreground, background, and all 16 ANSI slots through terminal queries. Konsole's foreground/background are queried; its ANSI colors are checked against rendered pixels because its OSC 4 query reports a fallback table.
+- Ghostty on macOS validates both files with `+validate-config`. Distro foot checks the legacy configuration; current Arch foot checks both modern color sections. Windows Terminal files are checked against Microsoft's schema, including unknown-property rejection.
+- Ruby parses Base16 and colorls YAML, verifies semantic slots, and runs colorls 1.5.0. bat builds its native theme cache and must emit the expected keyword, string, function, and comment RGB colors from source fixtures.
+- Emacs and the pinned `doom-themes` framework load both themes on Ubuntu 22.04 and current Ubuntu. Tests check Font Lock, inlay hints, region colors, diffs, all ANSI/vterm slots, repeated switching, and Python highlighting.
+- Neovim opens real lualine/Telescope interfaces on both supported versions, then Oil, Neo-tree, and Snacks on stable with the remaining completion/utility modules loaded. Selected completion surfaces retain the palette's text contrast; integrations are checked after dark/light/dark switches.
+
+The port generators and application harnesses are adapted from Morello at `eaeceaef461a8c3aeaf5ac8d610f005f7bc58038`, with Verdelle-specific palette and state checks. See [application setup](APPS.md).
+
 ## Limits
 
 Contrast is calculated from opaque sRGB palette values using WCAG relative luminance. It does not model terminal opacity, font rendering, monitor calibration, ambient light, or individual comfort.
 
 Passive borders, indentation guides, whitespace, and line numbers have lower contrast. Diagnostic information should retain severity signs, messages, or underline styles rather than depend on hue alone.
 
-Plugin highlight groups are defined, but individual plugin versions and custom renderers can apply additional attributes. The native completion UI is tested live; a particular blink.cmp, nvim-cmp, or Telescope setup is not thereby certified.
+Plugin highlight groups are defined, but individual plugin versions and custom renderers can apply additional attributes. The native completion UI and the listed plugin fixtures are tested; custom plugin configurations and renderers may behave differently.
 
-CI covers Neovim 0.10.4 and stable on Linux. Local Windows application control blocked the available Neovim executable during development, so live Neovim verification is performed by CI. All three terminal formats are checked as data, and Kitty is also launched and rendered. Alacritty and Ghostty are not launched. Hardware displays, bright/dim ambient conditions, extended sessions, and feedback from people with color-vision deficiencies remain human testing tasks.
+CI covers Neovim 0.10.4 and stable on Linux. Local Windows application control blocked the available Neovim executable during development, so live Neovim verification is performed by CI. The listed Linux terminals are launched; Ghostty and foot are checked with their native configuration parsers. Windows Terminal receives schema validation rather than a live rendering test. No application is guaranteed to classify every token identically. Base16 templates and terminal-controlled selections may differ from the dedicated editor themes. Hardware displays, bright/dim ambient conditions, extended sessions, and feedback from people with color-vision deficiencies remain human testing tasks.
 
 References: [WCAG text contrast](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html), [use of color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html), [Neovim highlights](https://neovim.io/doc/user/syntax/), [blink.cmp highlight groups](https://cmp.saghen.dev/configuration/appearance).
