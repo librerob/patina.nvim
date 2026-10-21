@@ -116,9 +116,9 @@ function M.get(c, opts)
 
   -- Weight is reserved for control flow; declarations keep the normal weight.
   local control_bold = opts.bold_control_flow and vim.o.background == "light"
-  hl("PatinaControlFlow", { fg = c.keyword, bold = control_bold })
+  hl("VerdelleControlFlow", { fg = c.keyword, bold = control_bold })
   for _, g in ipairs({ "Conditional", "Repeat", "Exception", "@keyword.return", "@keyword.conditional", "@keyword.repeat", "@keyword.exception" }) do
-    link(g, "PatinaControlFlow")
+    link(g, "VerdelleControlFlow")
   end
 
   -- Completion uses a quiet selected surface compatible with every item color.

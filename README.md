@@ -1,98 +1,89 @@
-# Patina
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/sprout-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/sprout-light.svg">
+    <img alt="" src="assets/sprout-light.svg" width="64" height="64">
+  </picture>
+</p>
 
-Copper keywords, verdigris functions, and room to read. A dark and light colorscheme for Neovim, with matching Kitty, Alacritty, and Ghostty themes.
+<h1 align="center">Verdelle</h1>
 
-![Patina dark palette and interface specimen](assets/patina-dark.png)
-![Patina light palette and interface specimen](assets/patina-light.png)
+<p align="center">Copper and verdigris, on ink and paper.<br>A dark and light colorscheme for editors and terminals.</p>
 
-These are designed palette specimens. CI also renders Neovim's actual screen cells for code, selection, completion, diagnostics, search, and diffs; download them from the **Verify** workflow's artifacts.
+<p align="center"><strong>Dark</strong> · deep teal, copper keywords, and soft brass strings.</p>
+
+![Verdelle Dark](assets/verdelle-dark.png)
+
+<p align="center"><strong>Light</strong> · bone paper, terracotta keywords, and verdigris functions.</p>
+
+![Verdelle Light](assets/verdelle-light.png)
 
 ## Install
 
-Neovim 0.10.4 or newer, with a terminal that supports true color.
+### Neovim
 
-With lazy.nvim:
+Neovim 0.10.4+ and a truecolor terminal. With lazy.nvim:
 
 ```lua
 {
-  "librerob/patina.nvim",
+  "librerob/verdelle",
   lazy = false,
   priority = 1000,
   config = function()
     vim.o.background = "dark" -- or "light"
-    vim.cmd.colorscheme("patina")
+    vim.cmd.colorscheme("verdelle")
   end,
 }
 ```
 
-For a manual installation, clone the **whole repository** into your Neovim package directory:
+For a manual install, copy `colors/verdelle.lua` and `lua/` into the corresponding directories in `vim.fn.stdpath("config")`.
 
-```sh
-git clone https://github.com/librerob/patina.nvim.git \
-  ~/.config/nvim/pack/themes/start/patina.nvim
-```
+Verdelle follows `background`. Switch with `:set background=light` or `:set background=dark`.
 
-On Windows, the corresponding directory is `~/AppData/Local/nvim/pack/themes/start/patina.nvim`. Then add `vim.cmd.colorscheme("patina")` to your configuration. Changing `background` switches variants live.
-
-## Options
-
-Setup is optional. Call it before loading the colorscheme:
+Setup is optional, before loading the theme:
 
 ```lua
-require("patina").setup({
+require("verdelle").setup({
   italic_comments = false,
-  bold_control_flow = true, -- light mode: conditionals, loops, returns, exceptions
-  overrides = {},
-})
-vim.cmd.colorscheme("patina")
-```
-
-`overrides` accepts highlight definitions or a function returning them:
-
-```lua
-require("patina").setup({
-  overrides = function(colors)
-    return { Comment = { fg = colors.comment, italic = true } }
-  end,
+  bold_control_flow = true, -- light mode
 })
 ```
 
-Read a copy of either palette with `require("patina").palette("light")` or `palette("dark")`. Calling `setup()` again resets unspecified options to their defaults and reapplies the active theme.
+Includes Vim syntax, Treesitter, LSP, diagnostics, diffs, and terminal colors. There are highlight mappings for Telescope, which-key, blink.cmp, nvim-cmp, neo-tree, gitsigns, and indent-blankline. Plugins and language parsers are installed separately. For lualine, set `options.theme = "verdelle"`.
 
-## Editor support
+### Terminals
 
-Vim syntax, Treesitter, LSP semantic tokens and diagnostics, Telescope, which-key, nvim-cmp, blink.cmp, neo-tree, gitsigns, indent-blankline, and lualine have highlight definitions. Plugin-specific rendering depends on the plugin's configuration; the live UI regression tests exercise Neovim's built-in completion menu.
+| App | Dark | Light | Setup |
+| --- | --- | --- | --- |
+| Kitty | [verdelle-dark.conf](ports/kitty/verdelle-dark.conf) | [verdelle-light.conf](ports/kitty/verdelle-light.conf) | Include your chosen file after other color settings. |
+| Alacritty | [verdelle-dark.toml](ports/alacritty/verdelle-dark.toml) | [verdelle-light.toml](ports/alacritty/verdelle-light.toml) | Add your chosen file to the existing `[general]` import array. |
+| Ghostty | [Verdelle Dark](ports/ghostty/Verdelle%20Dark) | [Verdelle Light](ports/ghostty/Verdelle%20Light) | Copy to your Ghostty `themes` directory, then set `theme = Verdelle Dark` or `theme = Verdelle Light`. |
 
-For lualine:
+These files set terminal colors. Editor syntax highlighting needs the editor theme too. Terminal variants switch separately from Neovim.
 
-```lua
-require("lualine").setup({ options = { theme = "patina" } })
-```
+## Colors
 
-Visual selection uses a dedicated foreground/background pair. Selected code becomes one readable ink color. Completion menus keep their syntax and kind colors on a separate, quieter selected surface. Light mode adds bold to control flow; declarations retain normal weight.
+Copper marks keywords, verdigris marks functions, and brass marks strings. Ordinary text stays neutral. Light mode uses the same warm/cool relationship on bone paper, with a little extra weight for control-flow groups.
 
-## Terminal themes
+Selection has its own readable foreground and stronger teal background. Completion uses a quieter surface so matched text, kind labels, and source labels remain visible.
 
-- **Kitty:** include `ports/kitty/patina-dark.conf` or `patina-light.conf` from your configuration.
-- **Alacritty:** import the matching TOML file from `ports/alacritty/` in `[general].import`.
-- **Ghostty:** copy `ports/ghostty/Patina Dark` and `Patina Light` into your Ghostty `themes` directory, then set `theme = Patina Dark` or `theme = Patina Light`.
+The checks cover **252 text/background pairs**, all at least **4.5:1**, including comments, diffs, search, and completion states. Selected text exceeds **5:1** in both variants. Passive borders, whitespace, and line numbers are deliberate exceptions.
 
-Terminal themes are static files; switch their variants separately from Neovim.
+[Dark palette](palette/dark.json) · [Light palette](palette/light.json) · [Design notes](docs/DESIGN.md)
 
 ## Development
 
-The JSON files in `palette/` are the source for the generated Lua palette and all terminal ports.
+`palette/dark.json` and `palette/light.json` are the sources for the Lua palette and terminal ports. With Python 3.11+:
 
 ```sh
 python tools/build.py
 python tools/build.py --check
 python tests/contrast.py
 nvim --headless -u NONE -l tests/highlights.lua
-python -m pip install pillow msgpack
-python tests/ui.py
-python tools/preview.py
 ```
 
-Python checks require 3.11+. CI runs the theme and UI tests on Neovim 0.10.4 and stable. See [testing notes](docs/TESTING.md) for scope and limitations, and [design notes](docs/DESIGN.md) for the palette decisions.
+CI also runs a real Neovim UI on 0.10.4 and stable, checking selection, completion, diagnostics, search, diffs, and live switching. See [test coverage and limits](docs/TESTING.md). [Configuration and overrides](docs/CONFIGURATION.md).
 
-MIT licensed.
+## License
+
+[MIT](LICENSE).

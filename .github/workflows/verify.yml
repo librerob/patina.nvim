@@ -1,7 +1,9 @@
 name: Verify
 on:
   push:
+    paths-ignore: ['README.md', 'docs/**', 'assets/**', 'LICENSE']
   pull_request:
+    paths-ignore: ['README.md', 'docs/**', 'assets/**', 'LICENSE']
   workflow_dispatch:
 permissions:
   contents: read

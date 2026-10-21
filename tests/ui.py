@@ -158,10 +158,10 @@ def run():
     captures = []
     try:
         n.request('nvim_ui_attach', 98, 34, {'rgb': True, 'ext_linegrid': True})
-        n.lua("vim.opt.runtimepath:prepend(vim.fn.getcwd()); vim.o.swapfile=false; vim.o.showmode=false; vim.o.laststatus=2; vim.o.statusline=' Patina %=%y  %l:%c '; vim.o.number=true; vim.o.cursorline=true; vim.o.signcolumn='yes'; vim.o.shortmess='I'; vim.cmd('filetype on'); vim.cmd('syntax on')")
+        n.lua("vim.opt.runtimepath:prepend(vim.fn.getcwd()); vim.o.swapfile=false; vim.o.showmode=false; vim.o.laststatus=2; vim.o.statusline=' Verdelle %=%y  %l:%c '; vim.o.number=true; vim.o.cursorline=true; vim.o.signcolumn='yes'; vim.o.shortmess='I'; vim.cmd('filetype on'); vim.cmd('syntax on')")
         for mode in ('dark', 'light'):
             n.command(f'set background={mode}')
-            n.command('colorscheme patina')
+            n.command('colorscheme verdelle')
             c = json.loads((ROOT / f'palette/{mode}.json').read_text())['colors']
             for filename in ('library.lua', 'client.ts', 'index.py', 'settings.json', 'notes.md'):
                 n.command(f'edit! tests/fixtures/{filename}')
@@ -207,11 +207,11 @@ def run():
 
             # Diagnostics retain a shape cue, and all four severity levels render.
             n.command('edit! tests/fixtures/library.lua')
-            n.lua("local ns=vim.api.nvim_create_namespace('patina-test'); vim.diagnostic.config({virtual_text=true,underline=true,signs=true}); vim.diagnostic.set(ns,0,{{lnum=1,col=0,end_col=7,message='Missing root path',severity=vim.diagnostic.severity.ERROR},{lnum=4,col=0,end_col=8,message='Unused parameter',severity=vim.diagnostic.severity.WARN},{lnum=9,col=0,end_col=6,message='Document title',severity=vim.diagnostic.severity.INFO},{lnum=13,col=0,end_col=7,message='Add a tag',severity=vim.diagnostic.severity.HINT}})")
+            n.lua("local ns=vim.api.nvim_create_namespace('verdelle-test'); vim.diagnostic.config({virtual_text=true,underline=true,signs=true}); vim.diagnostic.set(ns,0,{{lnum=1,col=0,end_col=7,message='Missing root path',severity=vim.diagnostic.severity.ERROR},{lnum=4,col=0,end_col=8,message='Unused parameter',severity=vim.diagnostic.severity.WARN},{lnum=9,col=0,end_col=6,message='Document title',severity=vim.diagnostic.severity.INFO},{lnum=13,col=0,end_col=7,message='Add a tag',severity=vim.diagnostic.severity.HINT}})")
             snapshot = n.snapshot()
             assert find(snapshot, 'Missing root path'), 'diagnostic text missing'
             render(snapshot, OUT / f'{mode}-diagnostics.png')
-            n.lua("vim.diagnostic.reset(vim.api.nvim_create_namespace('patina-test'))")
+            n.lua("vim.diagnostic.reset(vim.api.nvim_create_namespace('verdelle-test'))")
 
             # Search must be visible on highlighted code and comments.
             n.command('set hlsearch')
@@ -237,7 +237,7 @@ def run():
         # Real OptionSet after startup; a ColorScheme event must resolve the new palette.
         n.command('set background=dark')
         for _ in range(50):
-            if n.lua("return require('patina')._background") == 'dark':
+            if n.lua("return require('verdelle')._background") == 'dark':
                 break
             time.sleep(.02)
         assert n.lua("return vim.api.nvim_get_hl(0,{name='Normal',link=false}).bg") == int('101F20',16)

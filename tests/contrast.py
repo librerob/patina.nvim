@@ -38,14 +38,14 @@ def check():
         for i, color in enumerate(data['ansi'][1:], 1):
             assert contrast(color, c['bg']) >= 4.5, f'{mode}: ANSI {i} is unreadable'
         # Independently parse the emitted terminal formats and compare every color.
-        alacritty = tomllib.loads((ROOT / f'ports/alacritty/patina-{mode}.toml').read_text())['colors']
+        alacritty = tomllib.loads((ROOT / f'ports/alacritty/verdelle-{mode}.toml').read_text())['colors']
         assert alacritty['selection'] == {'text': c['selection_fg'], 'background': c['selection']}
         names = ('black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white')
         assert [alacritty[group][name] for group in ('normal', 'bright') for name in names] == data['ansi']
-        kitty = dict(line.split() for line in (ROOT / f'ports/kitty/patina-{mode}.conf').read_text().splitlines() if line and not line.startswith('#'))
+        kitty = dict(line.split() for line in (ROOT / f'ports/kitty/verdelle-{mode}.conf').read_text().splitlines() if line and not line.startswith('#'))
         assert kitty['selection_foreground'] == c['selection_fg'] and kitty['selection_background'] == c['selection']
         assert [kitty[f'color{i}'] for i in range(16)] == data['ansi']
-        ghostty = [line.split(' = ', 1) for line in (ROOT / f'ports/ghostty/Patina {mode.title()}').read_text().splitlines() if line and not line.startswith('#')]
+        ghostty = [line.split(' = ', 1) for line in (ROOT / f'ports/ghostty/Verdelle {mode.title()}').read_text().splitlines() if line and not line.startswith('#')]
         ghost_palette = [v.split('=', 1) for k, v in ghostty if k == 'palette']
         assert [value for _, value in ghost_palette] == data['ansi']
         ghost_options = dict((k, v) for k, v in ghostty if k != 'palette')

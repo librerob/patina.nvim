@@ -1,4 +1,4 @@
-local c = require("patina").palette().colors
+local c = require("verdelle").palette().colors
 local function mode(accent)
   return {
     a = { fg = c.bg, bg = accent, gui = "bold" },

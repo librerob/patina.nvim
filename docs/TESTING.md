@@ -10,7 +10,7 @@ Every tested text pair must reach 4.5:1. Visual selection must also differ from 
 
 `python tools/build.py --check` detects stale generated files.
 
-`tests/highlights.lua` runs inside Neovim. It checks module loading, setup before colorscheme activation, repeated variant changes, highlight links, Lua braces, control-flow emphasis, overrides, terminal slots, lualine colors, and the guard that prevents inactive Patina from restoring itself after a different colorscheme is selected.
+`tests/highlights.lua` runs inside Neovim. It checks module loading, setup before colorscheme activation, repeated variant changes, highlight links, Lua braces, control-flow emphasis, overrides, terminal slots, lualine colors, and the guard that prevents inactive Verdelle from restoring itself after a different colorscheme is selected.
 
 `tests/ui.py` attaches a real RGB line-grid UI to a fresh embedded Neovim. It opens Lua, TypeScript, Python, JSON, and Markdown fixtures, then exercises visual selection, native completion with kind/source columns, diagnostic virtual text, search, side-by-side diffs, and a live background switch. It checks the composed selection colors and completion text contrast. Its PNGs render the screen cells and RGB attributes emitted by Neovim, with Pillow; they are not terminal screenshots. The CI artifacts include these images and a JSON report.
 

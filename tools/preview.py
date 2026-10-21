@@ -22,7 +22,7 @@ def render(mode):
         d.text((x, y), value, fill=c.get(role, role), font=f)
     def rule(y):
         d.line((42, y, 1398, y), fill=c['border'])
-    text(42, 29, 'Patina', 'variable', title)
+    text(42, 29, 'Verdelle', 'variable', title)
     text(1210, 45, mode.upper(), 'func', small)
     text(42, 88, 'Copper / verdigris / ' + ('ink' if mode == 'dark' else 'bone paper'), 'muted')
     rule(132)
@@ -98,7 +98,7 @@ def render(mode):
         text(x+36,919,{'func':'function','variable':'text'}.get(role,role),'muted',small)
     text(42,978,'DESIGNED PALETTE SPECIMEN', 'comment', small)
     text(1042,978,'NEOVIM / TRUE COLOR', 'comment', small)
-    path = ROOT / f'assets/patina-{mode}.png'
+    path = ROOT / f'assets/verdelle-{mode}.png'
     path.parent.mkdir(exist_ok=True)
     image.save(path)
     print(path)

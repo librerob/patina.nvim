@@ -1,6 +1,6 @@
 # Design notes
 
-Patina starts with copper and verdigris. Dark mode puts warm accents on green-black ink; light mode puts terracotta and teal on bone paper.
+Verdelle starts with copper and verdigris. Dark mode puts warm accents on green-black ink; light mode puts terracotta and teal on bone paper.
 
 Dark strings use a softer brass, with slightly quieter mint and blue accents. Light strings use warm brown-brass instead of olive. Comments remain readable, and punctuation sits between comments and operators in luminance.
 

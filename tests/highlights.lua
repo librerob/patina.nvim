@@ -6,16 +6,16 @@ local function hex(color) return tonumber(color:sub(2), 16) end
 local function eq(actual, expected, label)
   assert(vim.deep_equal(actual, expected), label .. ': ' .. vim.inspect(actual) .. ' ~= ' .. vim.inspect(expected))
 end
-local theme = require('patina')
+local theme = require('verdelle')
 eq(vim.g.colors_name, nil, 'require has no theme side effects')
 theme.setup({ italic_comments = true })
 
 for _, mode in ipairs({ 'dark', 'light', 'dark', 'light' }) do
   vim.o.background = mode
-  vim.cmd.colorscheme('patina')
+  vim.cmd.colorscheme('verdelle')
   local p = theme.palette(mode)
   local c = p.colors
-  eq(vim.g.colors_name, 'patina', 'theme loaded')
+  eq(vim.g.colors_name, 'verdelle', 'theme loaded')
   eq(hl('Normal').bg, hex(c.bg), 'background')
   eq(hl('Comment').italic, true, 'setup before colorscheme')
   eq(hl('Visual').fg, hex(c.selection_fg), 'selection foreground')
@@ -31,12 +31,12 @@ for _, mode in ipairs({ 'dark', 'light', 'dark', 'light' }) do
   eq(hl('@keyword.function').bold or false, false, 'declaration weight')
   eq(hl('DiagnosticUnderlineError').undercurl, true, 'diagnostic shape cue')
   eq(hl('PmenuMatchSel').underline, true, 'completion match cue')
-  local lualine = require('lualine.themes.patina')
+  local lualine = require('lualine.themes.verdelle')
   eq(lualine.normal.a.bg, c.func, 'lualine follows background')
   for i, value in ipairs(p.ansi) do eq(vim.g['terminal_color_' .. (i-1)], value, 'terminal slot') end
   p.colors.bg = '#FFFFFF'
   assert(theme.palette(mode).colors.bg ~= '#FFFFFF', 'palette must be a defensive copy')
-  for name, spec in pairs(require('patina.highlights').get(c, theme.options)) do
+  for name, spec in pairs(require('verdelle.highlights').get(c, theme.options)) do
     if spec.link then assert(next(hl(name)), 'unresolved highlight: ' .. name) end
   end
 end
@@ -62,6 +62,6 @@ local old_name = vim.g.colors_name
 vim.o.background = 'light'
 api.nvim_exec_autocmds('OptionSet', { pattern = 'background' })
 vim.wait(30)
-eq(vim.g.colors_name, old_name, 'inactive Patina does not restore itself')
-print('Patina module, highlights, options, terminal slots, switching and lualine passed')
+eq(vim.g.colors_name, old_name, 'inactive Verdelle does not restore itself')
+print('Verdelle module, highlights, options, terminal slots, switching and lualine passed')
 vim.cmd('qa!')
