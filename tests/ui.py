@@ -166,6 +166,7 @@ def run():
             for filename in ('library.lua', 'client.ts', 'index.py', 'catalog.rs', 'settings.json', 'notes.md'):
                 n.command(f'edit! tests/fixtures/{filename}')
                 n.command('normal! gg')
+                n.command("echo ''")
                 snapshot = n.snapshot()
                 assert find(snapshot, Path(filename).stem) or len(set(ident for row in snapshot[0] for ch, ident in row if ch.strip())) >= 4
                 if filename == 'library.lua':
