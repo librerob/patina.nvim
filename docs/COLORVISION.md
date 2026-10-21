@@ -20,7 +20,7 @@ The unchanged dark palette's minimum is **7.36**, for function/type under full t
 
 ## Method
 
-Five chromatic syntax roles are compared: keyword, constant, type, function, and string. Their ten pairs are measured under normal vision and the Machado model's published protan, deutan, and tritan matrices at severities 10â€“100 in steps of 10. That is 620 pair/scenario comparisons across the two variants for each palette version.
+Five chromatic syntax roles are compared: keyword, constant, type, function, and string. Their ten pairs are measured under normal vision and the Machado model's published protan, deutan, and tritan matrices at severities 10 through 100 in steps of 10. That is 620 pair/scenario comparisons across the two variants for each palette version.
 
 Colors are decoded from sRGB to linear RGB, transformed, clipped to the display gamut, converted to CIELAB with a D65 reference white, and compared with CIEDE2000 using unit parametric factors. Clipping is explicit because these are displayed-color comparisons, not distances between out-of-gamut coordinates. The CIEDE2000 implementation is tested against all 34 supplementary reference vectors published by Sharma, Wu, and Dalal, including the hue-boundary cases.
 
