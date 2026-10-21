@@ -63,7 +63,7 @@ def render(mode):
                 role = 'punctuation'
             else:
                 role = 'variable'
-            text(x,y,value,role,bold if mode == 'light' and value in controls else font)
+            text(x,y,value,role,font)
             x += len(value)*char
     right = 997
     text(right,207,'Selection', 'muted', small)

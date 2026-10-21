@@ -4,7 +4,9 @@ Verdelle starts with copper and verdigris. Dark mode puts warm accents on green-
 
 Dark strings use a softer brass, with slightly quieter mint and blue accents. Light strings use warm brown-brass instead of olive. Comments remain readable, and punctuation sits between comments and operators in luminance.
 
-Light-mode keywords are close in luminance to the other accents. Control flow therefore gets a modest weight difference: conditionals, loops, returns, and exceptions are bold. Function declarations and the rest of the keyword family remain normal weight. The option can be disabled.
+Light-mode accents now have a deliberate lightness hierarchy: deep terracotta keywords, plum constants, blue types, then teal functions and brass strings. The last two remain close in lightness but sit on different warm/cool hue families. Bold control flow is off by default and can be enabled; it supplements the colors rather than carrying the hierarchy. Function declarations and the rest of the keyword family retain normal weight.
+
+The revision was measured under normal vision and the published Machado protan, deutan, and tritan simulations at ten severity levels. The weakest light pair improved from 4.51 to 9.22 CIEDE2000. Dark was retained, including the copper/mint pair: it was already well separated in these simulations. The remaining closest dark pair is function/type under full tritan simulation. [Method, full report, and limitations](COLORVISION.md).
 
 Selection is an interaction state, with its own text and background colors. Its surface contrasts with the editor background by more than 3:1 in both variants; selected text exceeds 5:1. Syntax colors are intentionally replaced inside the selection. Reference highlights use a quieter surface and an underline so the syntax can remain visible.
 

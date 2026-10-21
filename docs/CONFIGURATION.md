@@ -5,12 +5,12 @@ Call `require("verdelle").setup()` before `colorscheme verdelle`. Defaults:
 ```lua
 require("verdelle").setup({
   italic_comments = false,
-  bold_control_flow = true,
+  bold_control_flow = false,
   overrides = {},
 })
 ```
 
-Control-flow emphasis applies in light mode to distinct conditional, loop, return, and exception groups. Exact token coverage follows the syntax engine: some built-in syntax files group returns with other statements.
+Set `bold_control_flow = true` to add light-mode emphasis to distinct conditional, loop, return, and exception groups. It is off by default. Exact token coverage follows the syntax engine: some built-in syntax files group returns with other statements.
 
 Override individual highlights with a table or a function:
 

@@ -2,7 +2,7 @@ local M = {}
 
 local defaults = {
   italic_comments = false,
-  bold_control_flow = true,
+  bold_control_flow = false,
   overrides = {},
 }
 M.options = vim.deepcopy(defaults)

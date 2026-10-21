@@ -158,12 +158,12 @@ def run():
     captures = []
     try:
         n.request('nvim_ui_attach', 98, 34, {'rgb': True, 'ext_linegrid': True})
-        n.lua("vim.opt.runtimepath:prepend(vim.fn.getcwd()); vim.o.swapfile=false; vim.o.showmode=false; vim.o.laststatus=2; vim.o.statusline=' Verdelle %=%y  %l:%c '; vim.o.number=true; vim.o.cursorline=true; vim.o.signcolumn='yes'; vim.o.shortmess='I'; vim.cmd('filetype on'); vim.cmd('syntax on')")
+        n.lua("vim.opt.runtimepath:prepend(vim.fn.getcwd()); vim.o.swapfile=false; vim.o.showmode=false; vim.o.showcmd=false; vim.o.ruler=false; vim.o.laststatus=2; vim.o.statusline=' Verdelle %=%y  %l:%c '; vim.o.number=true; vim.o.cursorline=true; vim.o.signcolumn='yes'; vim.o.shortmess='filnxtToOFI'; vim.cmd('filetype on'); vim.cmd('syntax on')")
         for mode in ('dark', 'light'):
             n.command(f'set background={mode}')
             n.command('colorscheme verdelle')
             c = json.loads((ROOT / f'palette/{mode}.json').read_text())['colors']
-            for filename in ('library.lua', 'client.ts', 'index.py', 'settings.json', 'notes.md'):
+            for filename in ('library.lua', 'client.ts', 'index.py', 'catalog.rs', 'settings.json', 'notes.md'):
                 n.command(f'edit! tests/fixtures/{filename}')
                 n.command('normal! gg')
                 snapshot = n.snapshot()
@@ -242,7 +242,7 @@ def run():
             time.sleep(.02)
         assert n.lua("return vim.api.nvim_get_hl(0,{name='Normal',link=false}).bg") == int('101F20',16)
         (OUT / 'ui-report.json').write_text(json.dumps({'passed': True, 'captures': sorted(p.name for p in OUT.glob('*.png')), 'neovim': n.request('nvim_eval', 'execute("version")')}, indent=2))
-        print('Real Neovim UI passed: five languages, selection, completion, diagnostics, search, diff, live switching')
+        print('Real Neovim UI passed: six languages, selection, completion, diagnostics, search, diff, live switching')
     finally:
         n.stop()
 

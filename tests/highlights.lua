@@ -27,7 +27,7 @@ for _, mode in ipairs({ 'dark', 'light', 'dark', 'light' }) do
   eq(hl('@constructor.lua').fg, hex(c.punctuation), 'Lua braces')
   eq(hl('luaTable').fg, hex(c.punctuation), 'legacy Lua braces')
   eq(hl('luaFunction').fg, hex(c.keyword), 'legacy Lua declaration')
-  eq(hl('@keyword.conditional').bold or false, mode == 'light', 'control-flow emphasis')
+  eq(hl('@keyword.conditional').bold or false, false, 'quiet control-flow default')
   eq(hl('@keyword.function').bold or false, false, 'declaration weight')
   eq(hl('DiagnosticUnderlineError').undercurl, true, 'diagnostic shape cue')
   eq(hl('PmenuMatchSel').underline, true, 'completion match cue')
@@ -41,6 +41,9 @@ for _, mode in ipairs({ 'dark', 'light', 'dark', 'light' }) do
   end
 end
 
+theme.setup({ bold_control_flow = true })
+eq(hl('@keyword.conditional').bold, true, 'optional light control-flow emphasis')
+eq(hl('@keyword.function').bold or false, false, 'emphasis preserves declaration weight')
 theme.setup({ overrides = function(c) return { Comment = { fg = c.string, italic = true } } end })
 eq(hl('Comment').fg, hex(theme.palette().colors.string), 'callback override reapplies')
 theme.setup({ bold_control_flow = false, overrides = { Function = { fg = '#123456' } } })

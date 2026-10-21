@@ -47,7 +47,7 @@ Setup is optional, before loading the theme:
 ```lua
 require("verdelle").setup({
   italic_comments = false,
-  bold_control_flow = true, -- light mode
+  bold_control_flow = false, -- true adds weight in light mode
 })
 ```
 
@@ -65,13 +65,13 @@ These files set terminal colors. Editor syntax highlighting needs the editor the
 
 ## Colors
 
-Copper marks keywords, verdigris marks functions, and brass marks strings. Ordinary text stays neutral. Light mode uses the same warm/cool relationship on bone paper, with a little extra weight for control-flow groups.
+Copper marks keywords, verdigris marks functions, and brass marks strings. Ordinary text stays neutral. Light mode uses deep terracotta keywords, plum constants, and blue types above the lighter teal and brass accents. Extra weight for light-mode control flow is optional.
 
 Selection has its own readable foreground and stronger teal background. Completion uses a quieter surface so matched text, kind labels, and source labels remain visible.
 
 The checks cover **252 text/background pairs**, all at least **4.5:1**, including comments, diffs, search, and completion states. Selected text exceeds **5:1** in both variants. Passive borders, whitespace, and line numbers are deliberate exceptions.
 
-[Dark palette](palette/dark.json) · [Light palette](palette/light.json) · [Design notes](docs/DESIGN.md)
+[Dark palette](palette/dark.json) · [Light palette](palette/light.json) · [Design notes](docs/DESIGN.md) · [Color-vision checks](docs/COLORVISION.md)
 
 ## Development
 
@@ -81,10 +81,12 @@ The checks cover **252 text/background pairs**, all at least **4.5:1**, includin
 python tools/build.py
 python tools/build.py --check
 python tests/contrast.py
+python tests/color_math_test.py
+python tools/colorvision.py --check
 nvim --headless -u NONE -l tests/highlights.lua
 ```
 
-CI also runs a real Neovim UI on 0.10.4 and stable, checking selection, completion, diagnostics, search, diffs, and live switching. See [test coverage and limits](docs/TESTING.md). [Configuration and overrides](docs/CONFIGURATION.md).
+CI also runs a real Neovim UI on 0.10.4 and stable, checking six languages, selection, completion, diagnostics, search, diffs, and live switching. The generated Kitty themes are rendered in a real terminal too. See [test coverage and limits](docs/TESTING.md). [Configuration and overrides](docs/CONFIGURATION.md).
 
 ## License
 

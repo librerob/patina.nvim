@@ -1,0 +1,2266 @@
+{
+  "method": {
+    "simulation": "Machado, Oliveira and Fernandes (2009), published matrices at severities 10 through 100 in steps of 10, plus normal vision",
+    "pipeline": "sRGB -> linear RGB -> simulation -> clip to display gamut -> CIELAB D65 -> CIEDE2000, unit parametric factors",
+    "scope": "Five chromatic syntax roles, ten pairs, 31 scenarios, two variants: 620 pair/scenario comparisons per palette version. This is a design regression check, not accessibility certification.",
+    "baseline": "tests/fixtures/palette-v1.json, published before this revision at d0e2256eeb1ae88d43e32647dd171fc0d4a1921f"
+  },
+  "variants": {
+    "dark": {
+      "before": {
+        "roles": {
+          "keyword": {
+            "hex": "#E89450",
+            "contrast_on_base": 7.089417,
+            "Lab_L": 68.6926
+          },
+          "constant": {
+            "hex": "#D683B6",
+            "contrast_on_base": 6.28084,
+            "Lab_L": 64.890107
+          },
+          "type": {
+            "hex": "#85AFE0",
+            "contrast_on_base": 7.430612,
+            "Lab_L": 70.194209
+          },
+          "func": {
+            "hex": "#7BCBB3",
+            "contrast_on_base": 8.907618,
+            "Lab_L": 76.176526
+          },
+          "string": {
+            "hex": "#C8BB83",
+            "contrast_on_base": 8.791579,
+            "Lab_L": 75.736592
+          }
+        },
+        "minimum": {
+          "scenario": "tritan-100",
+          "minimum_pair": "type/func",
+          "minimum_distance": 7.358284
+        },
+        "cases": [
+          {
+            "scenario": "normal",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 20.527134,
+            "pairs": {
+              "keyword/constant": 37.266409,
+              "keyword/type": 41.851721,
+              "keyword/func": 41.646496,
+              "keyword/string": 20.527134,
+              "constant/type": 32.500455,
+              "constant/func": 42.542218,
+              "constant/string": 44.496611,
+              "type/func": 27.590642,
+              "type/string": 41.633033,
+              "func/string": 23.32252
+            }
+          },
+          {
+            "scenario": "protan-10",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 18.04958,
+            "pairs": {
+              "keyword/constant": 38.378149,
+              "keyword/type": 41.507769,
+              "keyword/func": 37.054008,
+              "keyword/string": 18.04958,
+              "constant/type": 29.133669,
+              "constant/func": 38.125672,
+              "constant/string": 43.082088,
+              "type/func": 27.068771,
+              "type/string": 41.697178,
+              "func/string": 21.601991
+            }
+          },
+          {
+            "scenario": "protan-20",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 15.942769,
+            "pairs": {
+              "keyword/constant": 39.172204,
+              "keyword/type": 41.445014,
+              "keyword/func": 33.277158,
+              "keyword/string": 15.942769,
+              "constant/type": 26.137838,
+              "constant/func": 35.269013,
+              "constant/string": 41.886397,
+              "type/func": 26.697343,
+              "type/string": 41.722772,
+              "func/string": 20.06303
+            }
+          },
+          {
+            "scenario": "protan-30",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 14.174886,
+            "pairs": {
+              "keyword/constant": 39.70397,
+              "keyword/type": 41.557708,
+              "keyword/func": 30.139213,
+              "keyword/string": 14.174886,
+              "constant/type": 23.387817,
+              "constant/func": 33.206311,
+              "constant/string": 40.863301,
+              "type/func": 26.424601,
+              "type/string": 41.721859,
+              "func/string": 18.641258
+            }
+          },
+          {
+            "scenario": "protan-40",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 12.722147,
+            "pairs": {
+              "keyword/constant": 40.018436,
+              "keyword/type": 41.778324,
+              "keyword/func": 27.504882,
+              "keyword/string": 12.722147,
+              "constant/type": 20.78561,
+              "constant/func": 31.259208,
+              "constant/string": 39.965032,
+              "type/func": 26.236103,
+              "type/string": 41.702682,
+              "func/string": 17.30991
+            }
+          },
+          {
+            "scenario": "protan-50",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 11.566722,
+            "pairs": {
+              "keyword/constant": 40.151503,
+              "keyword/type": 42.06295,
+              "keyword/func": 25.277557,
+              "keyword/string": 11.566722,
+              "constant/type": 18.268465,
+              "constant/func": 29.305625,
+              "constant/string": 39.152191,
+              "type/func": 26.145821,
+              "type/string": 41.670685,
+              "func/string": 16.069927
+            }
+          },
+          {
+            "scenario": "protan-60",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 10.693586,
+            "pairs": {
+              "keyword/constant": 40.135219,
+              "keyword/type": 42.383116,
+              "keyword/func": 23.39955,
+              "keyword/string": 10.693586,
+              "constant/type": 15.819067,
+              "constant/func": 27.545274,
+              "constant/string": 38.40116,
+              "type/func": 26.177966,
+              "type/string": 41.629757,
+              "func/string": 14.933812
+            }
+          },
+          {
+            "scenario": "protan-70",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 10.086985,
+            "pairs": {
+              "keyword/constant": 40.00341,
+              "keyword/type": 42.720134,
+              "keyword/func": 21.856015,
+              "keyword/string": 10.086985,
+              "constant/type": 13.482914,
+              "constant/func": 26.289859,
+              "constant/string": 37.707458,
+              "type/func": 26.345345,
+              "type/string": 38.560114,
+              "func/string": 13.919003
+            }
+          },
+          {
+            "scenario": "protan-80",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 9.726979,
+            "pairs": {
+              "keyword/constant": 39.794323,
+              "keyword/type": 43.062094,
+              "keyword/func": 20.681475,
+              "keyword/string": 9.726979,
+              "constant/type": 11.399536,
+              "constant/func": 25.736723,
+              "constant/string": 37.085775,
+              "type/func": 26.617994,
+              "type/string": 38.590532,
+              "func/string": 13.061703
+            }
+          },
+          {
+            "scenario": "protan-90",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 9.58799,
+            "pairs": {
+              "keyword/constant": 39.547796,
+              "keyword/type": 43.401537,
+              "keyword/func": 19.946857,
+              "keyword/string": 9.58799,
+              "constant/type": 9.824671,
+              "constant/func": 25.79602,
+              "constant/string": 36.564585,
+              "type/func": 26.904741,
+              "type/string": 38.611436,
+              "func/string": 12.441713
+            }
+          },
+          {
+            "scenario": "protan-100",
+            "minimum_pair": "constant/type",
+            "minimum_distance": 9.049531,
+            "pairs": {
+              "keyword/constant": 39.29767,
+              "keyword/type": 43.733761,
+              "keyword/func": 19.697051,
+              "keyword/string": 9.639542,
+              "constant/type": 9.049531,
+              "constant/func": 25.660895,
+              "constant/string": 36.172983,
+              "type/func": 26.299415,
+              "type/string": 38.624461,
+              "func/string": 12.150895
+            }
+          },
+          {
+            "scenario": "deutan-10",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 17.483705,
+            "pairs": {
+              "keyword/constant": 38.329765,
+              "keyword/type": 41.705717,
+              "keyword/func": 36.512207,
+              "keyword/string": 17.483705,
+              "constant/type": 28.95674,
+              "constant/func": 37.909492,
+              "constant/string": 42.377356,
+              "type/func": 26.741402,
+              "type/string": 41.887832,
+              "func/string": 21.740706
+            }
+          },
+          {
+            "scenario": "deutan-20",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 14.993387,
+            "pairs": {
+              "keyword/constant": 38.867464,
+              "keyword/type": 41.948022,
+              "keyword/func": 32.565985,
+              "keyword/string": 14.993387,
+              "constant/type": 25.952846,
+              "constant/func": 34.977509,
+              "constant/string": 40.507814,
+              "type/func": 25.992252,
+              "type/string": 42.091001,
+              "func/string": 20.441657
+            }
+          },
+          {
+            "scenario": "deutan-30",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 12.995599,
+            "pairs": {
+              "keyword/constant": 38.989514,
+              "keyword/type": 42.406064,
+              "keyword/func": 29.538609,
+              "keyword/string": 12.995599,
+              "constant/type": 23.325898,
+              "constant/func": 32.508313,
+              "constant/string": 38.831006,
+              "type/func": 25.283574,
+              "type/string": 42.259438,
+              "func/string": 19.341024
+            }
+          },
+          {
+            "scenario": "deutan-40",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 11.432129,
+            "pairs": {
+              "keyword/constant": 38.787955,
+              "keyword/type": 42.974377,
+              "keyword/func": 27.230636,
+              "keyword/string": 11.432129,
+              "constant/type": 20.956723,
+              "constant/func": 29.570628,
+              "constant/string": 37.276821,
+              "type/func": 24.589988,
+              "type/string": 42.403995,
+              "func/string": 18.407727
+            }
+          },
+          {
+            "scenario": "deutan-50",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 10.246701,
+            "pairs": {
+              "keyword/constant": 38.332755,
+              "keyword/type": 43.589336,
+              "keyword/func": 25.497487,
+              "keyword/string": 10.246701,
+              "constant/type": 18.780333,
+              "constant/func": 26.156907,
+              "constant/string": 35.785538,
+              "type/func": 23.910657,
+              "type/string": 42.531844,
+              "func/string": 17.644359
+            }
+          },
+          {
+            "scenario": "deutan-60",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 9.384145,
+            "pairs": {
+              "keyword/constant": 37.674877,
+              "keyword/type": 44.213323,
+              "keyword/func": 24.233785,
+              "keyword/string": 9.384145,
+              "constant/type": 16.782046,
+              "constant/func": 22.508697,
+              "constant/string": 34.322589,
+              "type/func": 23.255065,
+              "type/string": 39.579073,
+              "func/string": 17.062909
+            }
+          },
+          {
+            "scenario": "deutan-70",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 8.789919,
+            "pairs": {
+              "keyword/constant": 36.853928,
+              "keyword/type": 44.82506,
+              "keyword/func": 23.358839,
+              "keyword/string": 8.789919,
+              "constant/type": 14.977624,
+              "constant/func": 18.960076,
+              "constant/string": 32.877772,
+              "type/func": 22.636683,
+              "type/string": 39.778706,
+              "func/string": 16.67102
+            }
+          },
+          {
+            "scenario": "deutan-80",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 8.410942,
+            "pairs": {
+              "keyword/constant": 35.909561,
+              "keyword/type": 45.413124,
+              "keyword/func": 22.805466,
+              "keyword/string": 8.410942,
+              "constant/type": 13.389656,
+              "constant/func": 15.818306,
+              "constant/string": 31.45766,
+              "type/func": 22.076297,
+              "type/string": 39.963636,
+              "func/string": 16.466982
+            }
+          },
+          {
+            "scenario": "deutan-90",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 8.197919,
+            "pairs": {
+              "keyword/constant": 34.89437,
+              "keyword/type": 45.972139,
+              "keyword/func": 22.513495,
+              "keyword/string": 8.197919,
+              "constant/type": 12.054757,
+              "constant/func": 13.349314,
+              "constant/string": 30.08534,
+              "type/func": 21.620784,
+              "type/string": 40.136401,
+              "func/string": 16.437887
+            }
+          },
+          {
+            "scenario": "deutan-100",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 8.10766,
+            "pairs": {
+              "keyword/constant": 33.881469,
+              "keyword/type": 46.500256,
+              "keyword/func": 22.501098,
+              "keyword/string": 8.10766,
+              "constant/type": 11.107318,
+              "constant/func": 11.714415,
+              "constant/string": 28.81297,
+              "type/func": 21.105173,
+              "type/string": 40.29906,
+              "func/string": 16.609601
+            }
+          },
+          {
+            "scenario": "tritan-10",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 19.177173,
+            "pairs": {
+              "keyword/constant": 35.131552,
+              "keyword/type": 40.303301,
+              "keyword/func": 39.289454,
+              "keyword/string": 19.177173,
+              "constant/type": 31.135776,
+              "constant/func": 40.135879,
+              "constant/string": 41.604907,
+              "type/func": 26.166069,
+              "type/string": 39.492179,
+              "func/string": 22.368547
+            }
+          },
+          {
+            "scenario": "tritan-20",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 18.583047,
+            "pairs": {
+              "keyword/constant": 33.108752,
+              "keyword/type": 39.194809,
+              "keyword/func": 38.396106,
+              "keyword/string": 18.583047,
+              "constant/type": 30.899015,
+              "constant/func": 39.269124,
+              "constant/string": 39.413178,
+              "type/func": 24.958262,
+              "type/string": 37.573004,
+              "func/string": 22.062727
+            }
+          },
+          {
+            "scenario": "tritan-30",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 18.693628,
+            "pairs": {
+              "keyword/constant": 31.250159,
+              "keyword/type": 38.742546,
+              "keyword/func": 38.983673,
+              "keyword/string": 18.693628,
+              "constant/type": 31.836742,
+              "constant/func": 39.704953,
+              "constant/string": 37.873102,
+              "type/func": 23.958716,
+              "type/string": 35.94622,
+              "func/string": 22.411363
+            }
+          },
+          {
+            "scenario": "tritan-40",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 19.244149,
+            "pairs": {
+              "keyword/constant": 29.200811,
+              "keyword/type": 38.987569,
+              "keyword/func": 40.76747,
+              "keyword/string": 19.244149,
+              "constant/type": 33.819379,
+              "constant/func": 41.201619,
+              "constant/string": 36.477937,
+              "type/func": 22.924063,
+              "type/string": 34.287697,
+              "func/string": 23.317881
+            }
+          },
+          {
+            "scenario": "tritan-50",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 19.96977,
+            "pairs": {
+              "keyword/constant": 26.665274,
+              "keyword/type": 40.230503,
+              "keyword/func": 43.604948,
+              "keyword/string": 19.96977,
+              "constant/type": 36.810599,
+              "constant/func": 43.810583,
+              "constant/string": 34.799741,
+              "type/func": 21.626708,
+              "type/string": 32.411506,
+              "func/string": 24.75321
+            }
+          },
+          {
+            "scenario": "tritan-60",
+            "minimum_pair": "type/func",
+            "minimum_distance": 19.818094,
+            "pairs": {
+              "keyword/constant": 23.453419,
+              "keyword/type": 42.980768,
+              "keyword/func": 47.21499,
+              "keyword/string": 20.491266,
+              "constant/type": 40.649946,
+              "constant/func": 47.443641,
+              "constant/string": 32.398431,
+              "type/func": 19.818094,
+              "type/string": 30.495579,
+              "func/string": 26.68561
+            }
+          },
+          {
+            "scenario": "tritan-70",
+            "minimum_pair": "type/func",
+            "minimum_distance": 17.283001,
+            "pairs": {
+              "keyword/constant": 19.604942,
+              "keyword/type": 47.457488,
+              "keyword/func": 50.944208,
+              "keyword/string": 20.387903,
+              "constant/type": 44.822053,
+              "constant/func": 51.464783,
+              "constant/string": 28.94425,
+              "type/func": 17.283001,
+              "type/string": 29.38175,
+              "func/string": 29.049619
+            }
+          },
+          {
+            "scenario": "tritan-80",
+            "minimum_pair": "type/func",
+            "minimum_distance": 14.040679,
+            "pairs": {
+              "keyword/constant": 15.475614,
+              "keyword/type": 52.542776,
+              "keyword/func": 53.844436,
+              "keyword/string": 19.535764,
+              "constant/type": 48.504764,
+              "constant/func": 54.80553,
+              "constant/string": 24.6009,
+              "type/func": 14.040679,
+              "type/string": 30.036655,
+              "func/string": 31.724365
+            }
+          },
+          {
+            "scenario": "tritan-90",
+            "minimum_pair": "type/func",
+            "minimum_distance": 10.514049,
+            "pairs": {
+              "keyword/constant": 11.56856,
+              "keyword/type": 55.954273,
+              "keyword/func": 55.104482,
+              "keyword/string": 18.331437,
+              "constant/type": 50.899875,
+              "constant/func": 56.492919,
+              "constant/string": 20.237902,
+              "type/func": 10.514049,
+              "type/string": 32.201406,
+              "func/string": 34.36491
+            }
+          },
+          {
+            "scenario": "tritan-100",
+            "minimum_pair": "type/func",
+            "minimum_distance": 7.358284,
+            "pairs": {
+              "keyword/constant": 8.354567,
+              "keyword/type": 56.541868,
+              "keyword/func": 54.629316,
+              "keyword/string": 17.312345,
+              "constant/type": 51.689665,
+              "constant/func": 56.272413,
+              "constant/string": 16.881006,
+              "type/func": 7.358284,
+              "type/string": 34.569952,
+              "func/string": 36.380733
+            }
+          }
+        ]
+      },
+      "after": {
+        "roles": {
+          "keyword": {
+            "hex": "#E89450",
+            "contrast_on_base": 7.089417,
+            "Lab_L": 68.6926
+          },
+          "constant": {
+            "hex": "#D683B6",
+            "contrast_on_base": 6.28084,
+            "Lab_L": 64.890107
+          },
+          "type": {
+            "hex": "#85AFE0",
+            "contrast_on_base": 7.430612,
+            "Lab_L": 70.194209
+          },
+          "func": {
+            "hex": "#7BCBB3",
+            "contrast_on_base": 8.907618,
+            "Lab_L": 76.176526
+          },
+          "string": {
+            "hex": "#C8BB83",
+            "contrast_on_base": 8.791579,
+            "Lab_L": 75.736592
+          }
+        },
+        "minimum": {
+          "scenario": "tritan-100",
+          "minimum_pair": "type/func",
+          "minimum_distance": 7.358284
+        },
+        "cases": [
+          {
+            "scenario": "normal",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 20.527134,
+            "pairs": {
+              "keyword/constant": 37.266409,
+              "keyword/type": 41.851721,
+              "keyword/func": 41.646496,
+              "keyword/string": 20.527134,
+              "constant/type": 32.500455,
+              "constant/func": 42.542218,
+              "constant/string": 44.496611,
+              "type/func": 27.590642,
+              "type/string": 41.633033,
+              "func/string": 23.32252
+            }
+          },
+          {
+            "scenario": "protan-10",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 18.04958,
+            "pairs": {
+              "keyword/constant": 38.378149,
+              "keyword/type": 41.507769,
+              "keyword/func": 37.054008,
+              "keyword/string": 18.04958,
+              "constant/type": 29.133669,
+              "constant/func": 38.125672,
+              "constant/string": 43.082088,
+              "type/func": 27.068771,
+              "type/string": 41.697178,
+              "func/string": 21.601991
+            }
+          },
+          {
+            "scenario": "protan-20",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 15.942769,
+            "pairs": {
+              "keyword/constant": 39.172204,
+              "keyword/type": 41.445014,
+              "keyword/func": 33.277158,
+              "keyword/string": 15.942769,
+              "constant/type": 26.137838,
+              "constant/func": 35.269013,
+              "constant/string": 41.886397,
+              "type/func": 26.697343,
+              "type/string": 41.722772,
+              "func/string": 20.06303
+            }
+          },
+          {
+            "scenario": "protan-30",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 14.174886,
+            "pairs": {
+              "keyword/constant": 39.70397,
+              "keyword/type": 41.557708,
+              "keyword/func": 30.139213,
+              "keyword/string": 14.174886,
+              "constant/type": 23.387817,
+              "constant/func": 33.206311,
+              "constant/string": 40.863301,
+              "type/func": 26.424601,
+              "type/string": 41.721859,
+              "func/string": 18.641258
+            }
+          },
+          {
+            "scenario": "protan-40",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 12.722147,
+            "pairs": {
+              "keyword/constant": 40.018436,
+              "keyword/type": 41.778324,
+              "keyword/func": 27.504882,
+              "keyword/string": 12.722147,
+              "constant/type": 20.78561,
+              "constant/func": 31.259208,
+              "constant/string": 39.965032,
+              "type/func": 26.236103,
+              "type/string": 41.702682,
+              "func/string": 17.30991
+            }
+          },
+          {
+            "scenario": "protan-50",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 11.566722,
+            "pairs": {
+              "keyword/constant": 40.151503,
+              "keyword/type": 42.06295,
+              "keyword/func": 25.277557,
+              "keyword/string": 11.566722,
+              "constant/type": 18.268465,
+              "constant/func": 29.305625,
+              "constant/string": 39.152191,
+              "type/func": 26.145821,
+              "type/string": 41.670685,
+              "func/string": 16.069927
+            }
+          },
+          {
+            "scenario": "protan-60",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 10.693586,
+            "pairs": {
+              "keyword/constant": 40.135219,
+              "keyword/type": 42.383116,
+              "keyword/func": 23.39955,
+              "keyword/string": 10.693586,
+              "constant/type": 15.819067,
+              "constant/func": 27.545274,
+              "constant/string": 38.40116,
+              "type/func": 26.177966,
+              "type/string": 41.629757,
+              "func/string": 14.933812
+            }
+          },
+          {
+            "scenario": "protan-70",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 10.086985,
+            "pairs": {
+              "keyword/constant": 40.00341,
+              "keyword/type": 42.720134,
+              "keyword/func": 21.856015,
+              "keyword/string": 10.086985,
+              "constant/type": 13.482914,
+              "constant/func": 26.289859,
+              "constant/string": 37.707458,
+              "type/func": 26.345345,
+              "type/string": 38.560114,
+              "func/string": 13.919003
+            }
+          },
+          {
+            "scenario": "protan-80",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 9.726979,
+            "pairs": {
+              "keyword/constant": 39.794323,
+              "keyword/type": 43.062094,
+              "keyword/func": 20.681475,
+              "keyword/string": 9.726979,
+              "constant/type": 11.399536,
+              "constant/func": 25.736723,
+              "constant/string": 37.085775,
+              "type/func": 26.617994,
+              "type/string": 38.590532,
+              "func/string": 13.061703
+            }
+          },
+          {
+            "scenario": "protan-90",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 9.58799,
+            "pairs": {
+              "keyword/constant": 39.547796,
+              "keyword/type": 43.401537,
+              "keyword/func": 19.946857,
+              "keyword/string": 9.58799,
+              "constant/type": 9.824671,
+              "constant/func": 25.79602,
+              "constant/string": 36.564585,
+              "type/func": 26.904741,
+              "type/string": 38.611436,
+              "func/string": 12.441713
+            }
+          },
+          {
+            "scenario": "protan-100",
+            "minimum_pair": "constant/type",
+            "minimum_distance": 9.049531,
+            "pairs": {
+              "keyword/constant": 39.29767,
+              "keyword/type": 43.733761,
+              "keyword/func": 19.697051,
+              "keyword/string": 9.639542,
+              "constant/type": 9.049531,
+              "constant/func": 25.660895,
+              "constant/string": 36.172983,
+              "type/func": 26.299415,
+              "type/string": 38.624461,
+              "func/string": 12.150895
+            }
+          },
+          {
+            "scenario": "deutan-10",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 17.483705,
+            "pairs": {
+              "keyword/constant": 38.329765,
+              "keyword/type": 41.705717,
+              "keyword/func": 36.512207,
+              "keyword/string": 17.483705,
+              "constant/type": 28.95674,
+              "constant/func": 37.909492,
+              "constant/string": 42.377356,
+              "type/func": 26.741402,
+              "type/string": 41.887832,
+              "func/string": 21.740706
+            }
+          },
+          {
+            "scenario": "deutan-20",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 14.993387,
+            "pairs": {
+              "keyword/constant": 38.867464,
+              "keyword/type": 41.948022,
+              "keyword/func": 32.565985,
+              "keyword/string": 14.993387,
+              "constant/type": 25.952846,
+              "constant/func": 34.977509,
+              "constant/string": 40.507814,
+              "type/func": 25.992252,
+              "type/string": 42.091001,
+              "func/string": 20.441657
+            }
+          },
+          {
+            "scenario": "deutan-30",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 12.995599,
+            "pairs": {
+              "keyword/constant": 38.989514,
+              "keyword/type": 42.406064,
+              "keyword/func": 29.538609,
+              "keyword/string": 12.995599,
+              "constant/type": 23.325898,
+              "constant/func": 32.508313,
+              "constant/string": 38.831006,
+              "type/func": 25.283574,
+              "type/string": 42.259438,
+              "func/string": 19.341024
+            }
+          },
+          {
+            "scenario": "deutan-40",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 11.432129,
+            "pairs": {
+              "keyword/constant": 38.787955,
+              "keyword/type": 42.974377,
+              "keyword/func": 27.230636,
+              "keyword/string": 11.432129,
+              "constant/type": 20.956723,
+              "constant/func": 29.570628,
+              "constant/string": 37.276821,
+              "type/func": 24.589988,
+              "type/string": 42.403995,
+              "func/string": 18.407727
+            }
+          },
+          {
+            "scenario": "deutan-50",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 10.246701,
+            "pairs": {
+              "keyword/constant": 38.332755,
+              "keyword/type": 43.589336,
+              "keyword/func": 25.497487,
+              "keyword/string": 10.246701,
+              "constant/type": 18.780333,
+              "constant/func": 26.156907,
+              "constant/string": 35.785538,
+              "type/func": 23.910657,
+              "type/string": 42.531844,
+              "func/string": 17.644359
+            }
+          },
+          {
+            "scenario": "deutan-60",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 9.384145,
+            "pairs": {
+              "keyword/constant": 37.674877,
+              "keyword/type": 44.213323,
+              "keyword/func": 24.233785,
+              "keyword/string": 9.384145,
+              "constant/type": 16.782046,
+              "constant/func": 22.508697,
+              "constant/string": 34.322589,
+              "type/func": 23.255065,
+              "type/string": 39.579073,
+              "func/string": 17.062909
+            }
+          },
+          {
+            "scenario": "deutan-70",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 8.789919,
+            "pairs": {
+              "keyword/constant": 36.853928,
+              "keyword/type": 44.82506,
+              "keyword/func": 23.358839,
+              "keyword/string": 8.789919,
+              "constant/type": 14.977624,
+              "constant/func": 18.960076,
+              "constant/string": 32.877772,
+              "type/func": 22.636683,
+              "type/string": 39.778706,
+              "func/string": 16.67102
+            }
+          },
+          {
+            "scenario": "deutan-80",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 8.410942,
+            "pairs": {
+              "keyword/constant": 35.909561,
+              "keyword/type": 45.413124,
+              "keyword/func": 22.805466,
+              "keyword/string": 8.410942,
+              "constant/type": 13.389656,
+              "constant/func": 15.818306,
+              "constant/string": 31.45766,
+              "type/func": 22.076297,
+              "type/string": 39.963636,
+              "func/string": 16.466982
+            }
+          },
+          {
+            "scenario": "deutan-90",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 8.197919,
+            "pairs": {
+              "keyword/constant": 34.89437,
+              "keyword/type": 45.972139,
+              "keyword/func": 22.513495,
+              "keyword/string": 8.197919,
+              "constant/type": 12.054757,
+              "constant/func": 13.349314,
+              "constant/string": 30.08534,
+              "type/func": 21.620784,
+              "type/string": 40.136401,
+              "func/string": 16.437887
+            }
+          },
+          {
+            "scenario": "deutan-100",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 8.10766,
+            "pairs": {
+              "keyword/constant": 33.881469,
+              "keyword/type": 46.500256,
+              "keyword/func": 22.501098,
+              "keyword/string": 8.10766,
+              "constant/type": 11.107318,
+              "constant/func": 11.714415,
+              "constant/string": 28.81297,
+              "type/func": 21.105173,
+              "type/string": 40.29906,
+              "func/string": 16.609601
+            }
+          },
+          {
+            "scenario": "tritan-10",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 19.177173,
+            "pairs": {
+              "keyword/constant": 35.131552,
+              "keyword/type": 40.303301,
+              "keyword/func": 39.289454,
+              "keyword/string": 19.177173,
+              "constant/type": 31.135776,
+              "constant/func": 40.135879,
+              "constant/string": 41.604907,
+              "type/func": 26.166069,
+              "type/string": 39.492179,
+              "func/string": 22.368547
+            }
+          },
+          {
+            "scenario": "tritan-20",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 18.583047,
+            "pairs": {
+              "keyword/constant": 33.108752,
+              "keyword/type": 39.194809,
+              "keyword/func": 38.396106,
+              "keyword/string": 18.583047,
+              "constant/type": 30.899015,
+              "constant/func": 39.269124,
+              "constant/string": 39.413178,
+              "type/func": 24.958262,
+              "type/string": 37.573004,
+              "func/string": 22.062727
+            }
+          },
+          {
+            "scenario": "tritan-30",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 18.693628,
+            "pairs": {
+              "keyword/constant": 31.250159,
+              "keyword/type": 38.742546,
+              "keyword/func": 38.983673,
+              "keyword/string": 18.693628,
+              "constant/type": 31.836742,
+              "constant/func": 39.704953,
+              "constant/string": 37.873102,
+              "type/func": 23.958716,
+              "type/string": 35.94622,
+              "func/string": 22.411363
+            }
+          },
+          {
+            "scenario": "tritan-40",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 19.244149,
+            "pairs": {
+              "keyword/constant": 29.200811,
+              "keyword/type": 38.987569,
+              "keyword/func": 40.76747,
+              "keyword/string": 19.244149,
+              "constant/type": 33.819379,
+              "constant/func": 41.201619,
+              "constant/string": 36.477937,
+              "type/func": 22.924063,
+              "type/string": 34.287697,
+              "func/string": 23.317881
+            }
+          },
+          {
+            "scenario": "tritan-50",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 19.96977,
+            "pairs": {
+              "keyword/constant": 26.665274,
+              "keyword/type": 40.230503,
+              "keyword/func": 43.604948,
+              "keyword/string": 19.96977,
+              "constant/type": 36.810599,
+              "constant/func": 43.810583,
+              "constant/string": 34.799741,
+              "type/func": 21.626708,
+              "type/string": 32.411506,
+              "func/string": 24.75321
+            }
+          },
+          {
+            "scenario": "tritan-60",
+            "minimum_pair": "type/func",
+            "minimum_distance": 19.818094,
+            "pairs": {
+              "keyword/constant": 23.453419,
+              "keyword/type": 42.980768,
+              "keyword/func": 47.21499,
+              "keyword/string": 20.491266,
+              "constant/type": 40.649946,
+              "constant/func": 47.443641,
+              "constant/string": 32.398431,
+              "type/func": 19.818094,
+              "type/string": 30.495579,
+              "func/string": 26.68561
+            }
+          },
+          {
+            "scenario": "tritan-70",
+            "minimum_pair": "type/func",
+            "minimum_distance": 17.283001,
+            "pairs": {
+              "keyword/constant": 19.604942,
+              "keyword/type": 47.457488,
+              "keyword/func": 50.944208,
+              "keyword/string": 20.387903,
+              "constant/type": 44.822053,
+              "constant/func": 51.464783,
+              "constant/string": 28.94425,
+              "type/func": 17.283001,
+              "type/string": 29.38175,
+              "func/string": 29.049619
+            }
+          },
+          {
+            "scenario": "tritan-80",
+            "minimum_pair": "type/func",
+            "minimum_distance": 14.040679,
+            "pairs": {
+              "keyword/constant": 15.475614,
+              "keyword/type": 52.542776,
+              "keyword/func": 53.844436,
+              "keyword/string": 19.535764,
+              "constant/type": 48.504764,
+              "constant/func": 54.80553,
+              "constant/string": 24.6009,
+              "type/func": 14.040679,
+              "type/string": 30.036655,
+              "func/string": 31.724365
+            }
+          },
+          {
+            "scenario": "tritan-90",
+            "minimum_pair": "type/func",
+            "minimum_distance": 10.514049,
+            "pairs": {
+              "keyword/constant": 11.56856,
+              "keyword/type": 55.954273,
+              "keyword/func": 55.104482,
+              "keyword/string": 18.331437,
+              "constant/type": 50.899875,
+              "constant/func": 56.492919,
+              "constant/string": 20.237902,
+              "type/func": 10.514049,
+              "type/string": 32.201406,
+              "func/string": 34.36491
+            }
+          },
+          {
+            "scenario": "tritan-100",
+            "minimum_pair": "type/func",
+            "minimum_distance": 7.358284,
+            "pairs": {
+              "keyword/constant": 8.354567,
+              "keyword/type": 56.541868,
+              "keyword/func": 54.629316,
+              "keyword/string": 17.312345,
+              "constant/type": 51.689665,
+              "constant/func": 56.272413,
+              "constant/string": 16.881006,
+              "type/func": 7.358284,
+              "type/string": 34.569952,
+              "func/string": 36.380733
+            }
+          }
+        ]
+      }
+    },
+    "light": {
+      "before": {
+        "roles": {
+          "keyword": {
+            "hex": "#984733",
+            "contrast_on_base": 5.803117,
+            "Lab_L": 40.283637
+          },
+          "constant": {
+            "hex": "#844161",
+            "contrast_on_base": 6.549665,
+            "Lab_L": 37.022969
+          },
+          "type": {
+            "hex": "#215D99",
+            "contrast_on_base": 6.167015,
+            "Lab_L": 38.639525
+          },
+          "func": {
+            "hex": "#136866",
+            "contrast_on_base": 5.956373,
+            "Lab_L": 39.576157
+          },
+          "string": {
+            "hex": "#6C5914",
+            "contrast_on_base": 6.194489,
+            "Lab_L": 38.522988
+          }
+        },
+        "minimum": {
+          "scenario": "deutan-100",
+          "minimum_pair": "keyword/string",
+          "minimum_distance": 4.505023
+        },
+        "cases": [
+          {
+            "scenario": "normal",
+            "minimum_pair": "keyword/constant",
+            "minimum_distance": 20.625204,
+            "pairs": {
+              "keyword/constant": 20.625204,
+              "keyword/type": 39.165878,
+              "keyword/func": 42.881072,
+              "keyword/string": 25.228609,
+              "constant/type": 31.703203,
+              "constant/func": 43.066899,
+              "constant/string": 40.338572,
+              "type/func": 23.55235,
+              "type/string": 44.556057,
+              "func/string": 30.428107
+            }
+          },
+          {
+            "scenario": "protan-10",
+            "minimum_pair": "keyword/constant",
+            "minimum_distance": 21.623882,
+            "pairs": {
+              "keyword/constant": 21.623882,
+              "keyword/type": 38.18539,
+              "keyword/func": 38.376882,
+              "keyword/string": 22.663052,
+              "constant/type": 29.274757,
+              "constant/func": 38.901296,
+              "constant/string": 39.298064,
+              "type/func": 22.277364,
+              "type/string": 44.856274,
+              "func/string": 29.17255
+            }
+          },
+          {
+            "scenario": "protan-20",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 20.199106,
+            "pairs": {
+              "keyword/constant": 22.452593,
+              "keyword/type": 37.503259,
+              "keyword/func": 34.921421,
+              "keyword/string": 20.199106,
+              "constant/type": 27.133548,
+              "constant/func": 35.464674,
+              "constant/string": 38.371249,
+              "type/func": 21.205546,
+              "type/string": 45.116748,
+              "func/string": 28.188581
+            }
+          },
+          {
+            "scenario": "protan-30",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 17.842529,
+            "pairs": {
+              "keyword/constant": 23.14675,
+              "keyword/type": 37.05481,
+              "keyword/func": 31.90858,
+              "keyword/string": 17.842529,
+              "constant/type": 25.204493,
+              "constant/func": 31.826726,
+              "constant/string": 37.550363,
+              "type/func": 20.279729,
+              "type/string": 45.343812,
+              "func/string": 27.40389
+            }
+          },
+          {
+            "scenario": "protan-40",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 15.605313,
+            "pairs": {
+              "keyword/constant": 23.767026,
+              "keyword/type": 36.797494,
+              "keyword/func": 28.936628,
+              "keyword/string": 15.605313,
+              "constant/type": 23.43125,
+              "constant/func": 27.988141,
+              "constant/string": 36.81837,
+              "type/func": 19.460652,
+              "type/string": 45.543539,
+              "func/string": 26.774235
+            }
+          },
+          {
+            "scenario": "protan-50",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 13.515417,
+            "pairs": {
+              "keyword/constant": 24.357423,
+              "keyword/type": 36.703101,
+              "keyword/func": 26.005322,
+              "keyword/string": 13.515417,
+              "constant/type": 21.77001,
+              "constant/func": 23.945522,
+              "constant/string": 36.151808,
+              "type/func": 18.724255,
+              "type/string": 45.720902,
+              "func/string": 26.273786
+            }
+          },
+          {
+            "scenario": "protan-60",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 11.629632,
+            "pairs": {
+              "keyword/constant": 24.90867,
+              "keyword/type": 36.752749,
+              "keyword/func": 23.314696,
+              "keyword/string": 11.629632,
+              "constant/type": 20.176846,
+              "constant/func": 19.823886,
+              "constant/string": 35.52362,
+              "type/func": 18.053906,
+              "type/string": 45.8802,
+              "func/string": 25.890286
+            }
+          },
+          {
+            "scenario": "protan-70",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 10.04987,
+            "pairs": {
+              "keyword/constant": 25.367198,
+              "keyword/type": 36.932669,
+              "keyword/func": 21.081717,
+              "keyword/string": 10.04987,
+              "constant/type": 18.577935,
+              "constant/func": 15.919145,
+              "constant/string": 34.909098,
+              "type/func": 17.440318,
+              "type/string": 46.024949,
+              "func/string": 25.62589
+            }
+          },
+          {
+            "scenario": "protan-80",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 8.931753,
+            "pairs": {
+              "keyword/constant": 25.668679,
+              "keyword/type": 37.230467,
+              "keyword/func": 19.489632,
+              "keyword/string": 8.931753,
+              "constant/type": 16.842408,
+              "constant/func": 12.600068,
+              "constant/string": 34.303186,
+              "type/func": 16.938569,
+              "type/string": 46.158004,
+              "func/string": 25.503399
+            }
+          },
+          {
+            "scenario": "protan-90",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 8.449062,
+            "pairs": {
+              "keyword/constant": 25.771086,
+              "keyword/type": 37.631833,
+              "keyword/func": 18.66703,
+              "keyword/string": 8.449062,
+              "constant/type": 14.897849,
+              "constant/func": 10.338727,
+              "constant/string": 33.747532,
+              "type/func": 16.945919,
+              "type/string": 46.281827,
+              "func/string": 25.549244
+            }
+          },
+          {
+            "scenario": "protan-100",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 8.682978,
+            "pairs": {
+              "keyword/constant": 25.678692,
+              "keyword/type": 38.117325,
+              "keyword/func": 18.184626,
+              "keyword/string": 8.682978,
+              "constant/type": 13.025949,
+              "constant/func": 9.69933,
+              "constant/string": 33.327062,
+              "type/func": 18.041572,
+              "type/string": 46.398309,
+              "func/string": 25.047202
+            }
+          },
+          {
+            "scenario": "deutan-10",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 21.650895,
+            "pairs": {
+              "keyword/constant": 21.85849,
+              "keyword/type": 38.480328,
+              "keyword/func": 37.792913,
+              "keyword/string": 21.650895,
+              "constant/type": 29.153269,
+              "constant/func": 39.417601,
+              "constant/string": 38.414059,
+              "type/func": 21.990892,
+              "type/string": 44.973792,
+              "func/string": 29.309549
+            }
+          },
+          {
+            "scenario": "deutan-20",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 18.297876,
+            "pairs": {
+              "keyword/constant": 22.787821,
+              "keyword/type": 38.337952,
+              "keyword/func": 34.05237,
+              "keyword/string": 18.297876,
+              "constant/type": 27.060244,
+              "constant/func": 36.25465,
+              "constant/string": 36.59309,
+              "type/func": 20.518006,
+              "type/string": 45.341555,
+              "func/string": 28.585916
+            }
+          },
+          {
+            "scenario": "deutan-30",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 15.213166,
+            "pairs": {
+              "keyword/constant": 23.472993,
+              "keyword/type": 38.607415,
+              "keyword/func": 31.045587,
+              "keyword/string": 15.213166,
+              "constant/type": 25.33172,
+              "constant/func": 32.402913,
+              "constant/string": 34.873316,
+              "type/func": 19.029684,
+              "type/string": 45.667088,
+              "func/string": 28.176557
+            }
+          },
+          {
+            "scenario": "deutan-40",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 12.437481,
+            "pairs": {
+              "keyword/constant": 23.968006,
+              "keyword/type": 39.174541,
+              "keyword/func": 28.627921,
+              "keyword/string": 12.437481,
+              "constant/type": 23.907854,
+              "constant/func": 27.876558,
+              "constant/string": 33.233112,
+              "type/func": 17.436811,
+              "type/string": 45.957597,
+              "func/string": 28.047984
+            }
+          },
+          {
+            "scenario": "deutan-50",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 10.011114,
+            "pairs": {
+              "keyword/constant": 24.259282,
+              "keyword/type": 39.938646,
+              "keyword/func": 26.95435,
+              "keyword/string": 10.011114,
+              "constant/type": 22.755831,
+              "constant/func": 22.848107,
+              "constant/string": 31.643268,
+              "type/func": 15.723902,
+              "type/string": 46.219306,
+              "func/string": 28.193105
+            }
+          },
+          {
+            "scenario": "deutan-60",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 7.974196,
+            "pairs": {
+              "keyword/constant": 24.29577,
+              "keyword/type": 40.815595,
+              "keyword/func": 26.153261,
+              "keyword/string": 7.974196,
+              "constant/type": 21.863994,
+              "constant/func": 17.681611,
+              "constant/string": 30.077465,
+              "type/func": 14.13486,
+              "type/string": 46.457348,
+              "func/string": 28.599178
+            }
+          },
+          {
+            "scenario": "deutan-70",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 6.370508,
+            "pairs": {
+              "keyword/constant": 24.04104,
+              "keyword/type": 41.740761,
+              "keyword/func": 26.174636,
+              "keyword/string": 6.370508,
+              "constant/type": 21.234141,
+              "constant/func": 12.755615,
+              "constant/string": 28.518424,
+              "type/func": 13.256846,
+              "type/string": 46.675821,
+              "func/string": 29.197816
+            }
+          },
+          {
+            "scenario": "deutan-80",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 5.248899,
+            "pairs": {
+              "keyword/constant": 23.487912,
+              "keyword/type": 42.669066,
+              "keyword/func": 26.744099,
+              "keyword/string": 5.248899,
+              "constant/type": 20.869742,
+              "constant/func": 8.436763,
+              "constant/string": 26.956302,
+              "type/func": 13.404261,
+              "type/string": 46.878087,
+              "func/string": 29.843043
+            }
+          },
+          {
+            "scenario": "deutan-90",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 4.64073,
+            "pairs": {
+              "keyword/constant": 22.64043,
+              "keyword/type": 43.572528,
+              "keyword/func": 27.477564,
+              "keyword/string": 4.64073,
+              "constant/type": 20.673794,
+              "constant/func": 5.30209,
+              "constant/string": 25.374658,
+              "type/func": 14.217701,
+              "type/string": 47.066931,
+              "func/string": 30.388962
+            }
+          },
+          {
+            "scenario": "deutan-100",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 4.505023,
+            "pairs": {
+              "keyword/constant": 21.510246,
+              "keyword/type": 44.435532,
+              "keyword/func": 27.172495,
+              "keyword/string": 4.505023,
+              "constant/type": 19.498028,
+              "constant/func": 4.770976,
+              "constant/string": 23.780291,
+              "type/func": 15.214425,
+              "type/string": 47.244645,
+              "func/string": 29.474178
+            }
+          },
+          {
+            "scenario": "tritan-10",
+            "minimum_pair": "keyword/constant",
+            "minimum_distance": 19.584938,
+            "pairs": {
+              "keyword/constant": 19.584938,
+              "keyword/type": 38.078265,
+              "keyword/func": 40.601773,
+              "keyword/string": 23.068793,
+              "constant/type": 30.906491,
+              "constant/func": 41.219179,
+              "constant/string": 37.134923,
+              "type/func": 22.189447,
+              "type/string": 42.134748,
+              "func/string": 28.805938
+            }
+          },
+          {
+            "scenario": "tritan-20",
+            "minimum_pair": "keyword/constant",
+            "minimum_distance": 18.564827,
+            "pairs": {
+              "keyword/constant": 18.564827,
+              "keyword/type": 37.533085,
+              "keyword/func": 39.77717,
+              "keyword/string": 21.784298,
+              "constant/type": 30.942042,
+              "constant/func": 40.755457,
+              "constant/string": 34.736256,
+              "type/func": 21.192548,
+              "type/string": 40.033025,
+              "func/string": 27.903833
+            }
+          },
+          {
+            "scenario": "tritan-30",
+            "minimum_pair": "keyword/constant",
+            "minimum_distance": 17.641606,
+            "pairs": {
+              "keyword/constant": 17.641606,
+              "keyword/type": 37.751241,
+              "keyword/func": 40.235653,
+              "keyword/string": 21.257266,
+              "constant/type": 31.998512,
+              "constant/func": 41.40087,
+              "constant/string": 33.025818,
+              "type/func": 20.467232,
+              "type/string": 38.302768,
+              "func/string": 27.746776
+            }
+          },
+          {
+            "scenario": "tritan-40",
+            "minimum_pair": "keyword/constant",
+            "minimum_distance": 16.659258,
+            "pairs": {
+              "keyword/constant": 16.659258,
+              "keyword/type": 38.835634,
+              "keyword/func": 41.733664,
+              "keyword/string": 21.057798,
+              "constant/type": 34.159924,
+              "constant/func": 42.970615,
+              "constant/string": 31.433337,
+              "type/func": 19.734394,
+              "type/string": 40.581217,
+              "func/string": 28.187959
+            }
+          },
+          {
+            "scenario": "tritan-50",
+            "minimum_pair": "keyword/constant",
+            "minimum_distance": 15.479867,
+            "pairs": {
+              "keyword/constant": 15.479867,
+              "keyword/type": 41.131836,
+              "keyword/func": 44.244339,
+              "keyword/string": 20.814839,
+              "constant/type": 37.64604,
+              "constant/func": 45.514293,
+              "constant/string": 29.500356,
+              "type/func": 18.743726,
+              "type/string": 38.227242,
+              "func/string": 29.212815
+            }
+          },
+          {
+            "scenario": "tritan-60",
+            "minimum_pair": "keyword/constant",
+            "minimum_distance": 14.011052,
+            "pairs": {
+              "keyword/constant": 14.011052,
+              "keyword/type": 44.055659,
+              "keyword/func": 46.688204,
+              "keyword/string": 20.134024,
+              "constant/type": 41.228206,
+              "constant/func": 47.460995,
+              "constant/string": 26.793784,
+              "type/func": 17.351241,
+              "type/string": 35.535155,
+              "func/string": 30.417486
+            }
+          },
+          {
+            "scenario": "tritan-70",
+            "minimum_pair": "keyword/constant",
+            "minimum_distance": 12.254578,
+            "pairs": {
+              "keyword/constant": 12.254578,
+              "keyword/type": 47.344476,
+              "keyword/func": 48.64003,
+              "keyword/string": 18.743621,
+              "constant/type": 44.436356,
+              "constant/func": 48.566188,
+              "constant/string": 23.062231,
+              "type/func": 15.375413,
+              "type/string": 33.146273,
+              "func/string": 32.067172
+            }
+          },
+          {
+            "scenario": "tritan-80",
+            "minimum_pair": "keyword/constant",
+            "minimum_distance": 10.360963,
+            "pairs": {
+              "keyword/constant": 10.360963,
+              "keyword/type": 51.153789,
+              "keyword/func": 50.174756,
+              "keyword/string": 16.822285,
+              "constant/type": 47.487956,
+              "constant/func": 49.601207,
+              "constant/string": 18.594381,
+              "type/func": 12.584702,
+              "type/string": 32.580041,
+              "func/string": 34.386994
+            }
+          },
+          {
+            "scenario": "tritan-90",
+            "minimum_pair": "keyword/constant",
+            "minimum_distance": 8.569351,
+            "pairs": {
+              "keyword/constant": 8.569351,
+              "keyword/type": 54.080512,
+              "keyword/func": 50.918328,
+              "keyword/string": 15.007455,
+              "constant/type": 49.615638,
+              "constant/func": 50.379371,
+              "constant/string": 14.258537,
+              "type/func": 9.136583,
+              "type/string": 34.221962,
+              "func/string": 36.753847
+            }
+          },
+          {
+            "scenario": "tritan-100",
+            "minimum_pair": "type/func",
+            "minimum_distance": 5.60184,
+            "pairs": {
+              "keyword/constant": 7.11794,
+              "keyword/type": 55.071629,
+              "keyword/func": 50.840826,
+              "keyword/string": 13.784399,
+              "constant/type": 50.668056,
+              "constant/func": 47.872754,
+              "constant/string": 10.944745,
+              "type/func": 5.60184,
+              "type/string": 36.671791,
+              "func/string": 38.494604
+            }
+          }
+        ]
+      },
+      "after": {
+        "roles": {
+          "keyword": {
+            "hex": "#733323",
+            "contrast_on_base": 8.558804,
+            "Lab_L": 29.75026
+          },
+          "constant": {
+            "hex": "#604061",
+            "contrast_on_base": 7.930023,
+            "Lab_L": 31.845498
+          },
+          "type": {
+            "hex": "#255098",
+            "contrast_on_base": 7.112625,
+            "Lab_L": 34.795569
+          },
+          "func": {
+            "hex": "#0E6C5F",
+            "contrast_on_base": 5.725084,
+            "Lab_L": 40.644203
+          },
+          "string": {
+            "hex": "#7A5C15",
+            "contrast_on_base": 5.656672,
+            "Lab_L": 40.971749
+          }
+        },
+        "minimum": {
+          "scenario": "tritan-100",
+          "minimum_pair": "type/func",
+          "minimum_distance": 9.216568
+        },
+        "cases": [
+          {
+            "scenario": "normal",
+            "minimum_pair": "constant/type",
+            "minimum_distance": 21.417432,
+            "pairs": {
+              "keyword/constant": 23.320777,
+              "keyword/type": 36.794475,
+              "keyword/func": 43.977867,
+              "keyword/string": 22.875194,
+              "constant/type": 21.417432,
+              "constant/func": 37.812595,
+              "constant/string": 39.77241,
+              "type/func": 31.348912,
+              "type/string": 47.539521,
+              "func/string": 31.637481
+            }
+          },
+          {
+            "scenario": "protan-10",
+            "minimum_pair": "constant/type",
+            "minimum_distance": 20.481467,
+            "pairs": {
+              "keyword/constant": 23.961961,
+              "keyword/type": 36.714139,
+              "keyword/func": 39.657212,
+              "keyword/string": 21.444291,
+              "constant/type": 20.481467,
+              "constant/func": 34.643879,
+              "constant/string": 39.633879,
+              "type/func": 29.818334,
+              "type/string": 47.844561,
+              "func/string": 29.251705
+            }
+          },
+          {
+            "scenario": "protan-20",
+            "minimum_pair": "constant/type",
+            "minimum_distance": 19.581132,
+            "pairs": {
+              "keyword/constant": 24.5031,
+              "keyword/type": 36.699487,
+              "keyword/func": 36.356668,
+              "keyword/string": 20.073935,
+              "constant/type": 19.581132,
+              "constant/func": 31.656316,
+              "constant/string": 39.444376,
+              "type/func": 28.662335,
+              "type/string": 48.09115,
+              "func/string": 27.310984
+            }
+          },
+          {
+            "scenario": "protan-30",
+            "minimum_pair": "constant/type",
+            "minimum_distance": 18.675436,
+            "pairs": {
+              "keyword/constant": 24.995073,
+              "keyword/type": 36.749987,
+              "keyword/func": 33.216051,
+              "keyword/string": 18.79284,
+              "constant/type": 18.675436,
+              "constant/func": 28.662528,
+              "constant/string": 39.223881,
+              "type/func": 27.809659,
+              "type/string": 48.292624,
+              "func/string": 25.700208
+            }
+          },
+          {
+            "scenario": "protan-40",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 17.628952,
+            "pairs": {
+              "keyword/constant": 25.461033,
+              "keyword/type": 36.865498,
+              "keyword/func": 29.86583,
+              "keyword/string": 17.628952,
+              "constant/type": 17.728553,
+              "constant/func": 25.913658,
+              "constant/string": 38.987841,
+              "type/func": 27.201023,
+              "type/string": 48.459188,
+              "func/string": 24.341618
+            }
+          },
+          {
+            "scenario": "protan-50",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 16.614282,
+            "pairs": {
+              "keyword/constant": 25.901562,
+              "keyword/type": 37.046289,
+              "keyword/func": 26.451574,
+              "keyword/string": 16.614282,
+              "constant/type": 16.721025,
+              "constant/func": 23.556819,
+              "constant/string": 38.749276,
+              "type/func": 26.792974,
+              "type/string": 48.598294,
+              "func/string": 23.186072
+            }
+          },
+          {
+            "scenario": "protan-60",
+            "minimum_pair": "constant/type",
+            "minimum_distance": 15.657706,
+            "pairs": {
+              "keyword/constant": 26.308294,
+              "keyword/type": 37.292873,
+              "keyword/func": 23.246417,
+              "keyword/string": 15.786786,
+              "constant/type": 15.657706,
+              "constant/func": 21.66693,
+              "constant/string": 38.519787,
+              "type/func": 26.562331,
+              "type/string": 48.715809,
+              "func/string": 22.203557
+            }
+          },
+          {
+            "scenario": "protan-70",
+            "minimum_pair": "constant/type",
+            "minimum_distance": 14.568003,
+            "pairs": {
+              "keyword/constant": 26.672767,
+              "keyword/type": 37.605129,
+              "keyword/func": 20.489885,
+              "keyword/string": 15.188411,
+              "constant/type": 14.568003,
+              "constant/func": 20.309462,
+              "constant/string": 38.309109,
+              "type/func": 26.51441,
+              "type/string": 48.81624,
+              "func/string": 21.372513
+            }
+          },
+          {
+            "scenario": "protan-80",
+            "minimum_pair": "constant/type",
+            "minimum_distance": 13.4974,
+            "pairs": {
+              "keyword/constant": 26.989532,
+              "keyword/type": 37.981055,
+              "keyword/func": 18.380944,
+              "keyword/string": 14.858016,
+              "constant/type": 13.4974,
+              "constant/func": 19.542127,
+              "constant/string": 38.124424,
+              "type/func": 26.692229,
+              "type/string": 48.903091,
+              "func/string": 20.668602
+            }
+          },
+          {
+            "scenario": "protan-90",
+            "minimum_pair": "constant/type",
+            "minimum_distance": 12.49516,
+            "pairs": {
+              "keyword/constant": 27.256096,
+              "keyword/type": 38.415471,
+              "keyword/func": 17.090901,
+              "keyword/string": 14.820455,
+              "constant/type": 12.49516,
+              "constant/func": 19.368045,
+              "constant/string": 37.970367,
+              "type/func": 27.098932,
+              "type/string": 48.979233,
+              "func/string": 20.088749
+            }
+          },
+          {
+            "scenario": "protan-100",
+            "minimum_pair": "constant/type",
+            "minimum_distance": 11.60367,
+            "pairs": {
+              "keyword/constant": 27.4715,
+              "keyword/type": 38.898114,
+              "keyword/func": 16.773897,
+              "keyword/string": 15.075596,
+              "constant/type": 11.60367,
+              "constant/func": 19.36545,
+              "constant/string": 37.84888,
+              "type/func": 26.8778,
+              "type/string": 49.046806,
+              "func/string": 19.763985
+            }
+          },
+          {
+            "scenario": "deutan-10",
+            "minimum_pair": "constant/type",
+            "minimum_distance": 20.55417,
+            "pairs": {
+              "keyword/constant": 24.267871,
+              "keyword/type": 37.017089,
+              "keyword/func": 38.788741,
+              "keyword/string": 20.55953,
+              "constant/type": 20.55417,
+              "constant/func": 34.554705,
+              "constant/string": 39.33315,
+              "type/func": 29.513722,
+              "type/string": 48.050581,
+              "func/string": 29.285452
+            }
+          },
+          {
+            "scenario": "deutan-20",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 18.397179,
+            "pairs": {
+              "keyword/constant": 25.111777,
+              "keyword/type": 37.447144,
+              "keyword/func": 34.787226,
+              "keyword/string": 18.397179,
+              "constant/type": 19.808831,
+              "constant/func": 31.233449,
+              "constant/string": 38.827998,
+              "type/func": 27.9694,
+              "type/string": 48.484973,
+              "func/string": 27.539024
+            }
+          },
+          {
+            "scenario": "deutan-30",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 16.457998,
+            "pairs": {
+              "keyword/constant": 25.896167,
+              "keyword/type": 38.051068,
+              "keyword/func": 31.098181,
+              "keyword/string": 16.457998,
+              "constant/type": 19.126308,
+              "constant/func": 27.639258,
+              "constant/string": 38.287927,
+              "type/func": 26.634869,
+              "type/string": 48.860667,
+              "func/string": 26.237814
+            }
+          },
+          {
+            "scenario": "deutan-40",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 14.794764,
+            "pairs": {
+              "keyword/constant": 26.607263,
+              "keyword/type": 38.783497,
+              "keyword/func": 27.591139,
+              "keyword/string": 14.794764,
+              "constant/type": 18.454783,
+              "constant/func": 24.10343,
+              "constant/string": 37.732703,
+              "type/func": 25.444749,
+              "type/string": 49.190748,
+              "func/string": 25.275003
+            }
+          },
+          {
+            "scenario": "deutan-50",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 13.440178,
+            "pairs": {
+              "keyword/constant": 27.209453,
+              "keyword/type": 39.594573,
+              "keyword/func": 24.527408,
+              "keyword/string": 13.440178,
+              "constant/type": 17.754194,
+              "constant/func": 20.784983,
+              "constant/string": 37.176483,
+              "type/func": 24.342719,
+              "type/string": 49.485004,
+              "func/string": 24.58406
+            }
+          },
+          {
+            "scenario": "deutan-60",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 12.4,
+            "pairs": {
+              "keyword/constant": 27.676239,
+              "keyword/type": 40.438312,
+              "keyword/func": 22.137526,
+              "keyword/string": 12.4,
+              "constant/type": 17.004231,
+              "constant/func": 17.73673,
+              "constant/string": 36.630239,
+              "type/func": 23.265626,
+              "type/string": 49.750829,
+              "func/string": 24.128006
+            }
+          },
+          {
+            "scenario": "deutan-70",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 11.651542,
+            "pairs": {
+              "keyword/constant": 28.000149,
+              "keyword/type": 41.278223,
+              "keyword/func": 20.531414,
+              "keyword/string": 11.651542,
+              "constant/type": 16.20745,
+              "constant/func": 15.000887,
+              "constant/string": 36.102668,
+              "type/func": 22.100697,
+              "type/string": 49.99379,
+              "func/string": 23.897535
+            }
+          },
+          {
+            "scenario": "deutan-80",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 11.150369,
+            "pairs": {
+              "keyword/constant": 28.190576,
+              "keyword/type": 42.089111,
+              "keyword/func": 19.737665,
+              "keyword/string": 11.150369,
+              "constant/type": 15.385957,
+              "constant/func": 12.6395,
+              "constant/string": 35.600506,
+              "type/func": 20.604863,
+              "type/string": 50.218242,
+              "func/string": 23.940069
+            }
+          },
+          {
+            "scenario": "deutan-90",
+            "minimum_pair": "constant/func",
+            "minimum_distance": 10.730742,
+            "pairs": {
+              "keyword/constant": 28.267174,
+              "keyword/type": 42.8565,
+              "keyword/func": 19.817992,
+              "keyword/string": 10.842168,
+              "constant/type": 14.572872,
+              "constant/func": 10.730742,
+              "constant/string": 35.128404,
+              "type/func": 19.367596,
+              "type/string": 50.427664,
+              "func/string": 24.446747
+            }
+          },
+          {
+            "scenario": "deutan-100",
+            "minimum_pair": "constant/func",
+            "minimum_distance": 9.447657,
+            "pairs": {
+              "keyword/constant": 28.253388,
+              "keyword/type": 43.573603,
+              "keyword/func": 20.233289,
+              "keyword/string": 10.674136,
+              "constant/type": 13.802474,
+              "constant/func": 9.447657,
+              "constant/string": 34.689218,
+              "type/func": 21.28949,
+              "type/string": 50.624834,
+              "func/string": 24.712796
+            }
+          },
+          {
+            "scenario": "tritan-10",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 21.138121,
+            "pairs": {
+              "keyword/constant": 22.221361,
+              "keyword/type": 35.878144,
+              "keyword/func": 41.7414,
+              "keyword/string": 21.138121,
+              "constant/type": 21.235423,
+              "constant/func": 36.437441,
+              "constant/string": 36.988428,
+              "type/func": 29.607475,
+              "type/string": 45.008004,
+              "func/string": 29.873812
+            }
+          },
+          {
+            "scenario": "tritan-20",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 20.020187,
+            "pairs": {
+              "keyword/constant": 21.250187,
+              "keyword/type": 35.271505,
+              "keyword/func": 40.957557,
+              "keyword/string": 20.020187,
+              "constant/type": 21.395387,
+              "constant/func": 35.980443,
+              "constant/string": 34.722379,
+              "type/func": 28.334062,
+              "type/string": 42.83239,
+              "func/string": 29.126766
+            }
+          },
+          {
+            "scenario": "tritan-30",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 19.387138,
+            "pairs": {
+              "keyword/constant": 20.494228,
+              "keyword/type": 35.151076,
+              "keyword/func": 41.354587,
+              "keyword/string": 19.387138,
+              "constant/type": 22.082505,
+              "constant/func": 36.438421,
+              "constant/string": 32.895034,
+              "type/func": 27.468724,
+              "type/string": 41.040448,
+              "func/string": 29.366216
+            }
+          },
+          {
+            "scenario": "tritan-40",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 18.890832,
+            "pairs": {
+              "keyword/constant": 19.801678,
+              "keyword/type": 35.565663,
+              "keyword/func": 42.66849,
+              "keyword/string": 18.890832,
+              "constant/type": 23.472306,
+              "constant/func": 37.69991,
+              "constant/string": 31.014663,
+              "type/func": 26.686945,
+              "type/string": 39.321947,
+              "func/string": 30.393537
+            }
+          },
+          {
+            "scenario": "tritan-50",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 18.251553,
+            "pairs": {
+              "keyword/constant": 19.047932,
+              "keyword/type": 36.750933,
+              "keyword/func": 44.872868,
+              "keyword/string": 18.251553,
+              "constant/type": 25.890876,
+              "constant/func": 39.664248,
+              "constant/string": 28.678426,
+              "type/func": 25.678384,
+              "type/string": 37.621039,
+              "func/string": 32.159235
+            }
+          },
+          {
+            "scenario": "tritan-60",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 17.22234,
+            "pairs": {
+              "keyword/constant": 18.13083,
+              "keyword/type": 39.004359,
+              "keyword/func": 46.941917,
+              "keyword/string": 17.22234,
+              "constant/type": 29.493291,
+              "constant/func": 41.376552,
+              "constant/string": 25.55952,
+              "type/func": 23.927448,
+              "type/string": 36.284888,
+              "func/string": 34.011667
+            }
+          },
+          {
+            "scenario": "tritan-70",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 15.733754,
+            "pairs": {
+              "keyword/constant": 17.012337,
+              "keyword/type": 41.442635,
+              "keyword/func": 48.657498,
+              "keyword/string": 15.733754,
+              "constant/type": 32.747732,
+              "constant/func": 42.933746,
+              "constant/string": 21.605401,
+              "type/func": 21.596141,
+              "type/string": 35.676582,
+              "func/string": 36.183588
+            }
+          },
+          {
+            "scenario": "tritan-80",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 14.083796,
+            "pairs": {
+              "keyword/constant": 15.796969,
+              "keyword/type": 44.954929,
+              "keyword/func": 49.873068,
+              "keyword/string": 14.083796,
+              "constant/type": 36.829122,
+              "constant/func": 44.494251,
+              "constant/string": 17.297869,
+              "type/func": 18.240099,
+              "type/string": 37.529118,
+              "func/string": 38.557034
+            }
+          },
+          {
+            "scenario": "tritan-90",
+            "minimum_pair": "keyword/string",
+            "minimum_distance": 12.765643,
+            "pairs": {
+              "keyword/constant": 14.671031,
+              "keyword/type": 48.678206,
+              "keyword/func": 50.263197,
+              "keyword/string": 12.765643,
+              "constant/type": 40.639409,
+              "constant/func": 45.852459,
+              "constant/string": 13.476483,
+              "type/func": 13.895119,
+              "type/string": 41.966672,
+              "func/string": 40.517782
+            }
+          },
+          {
+            "scenario": "tritan-100",
+            "minimum_pair": "type/func",
+            "minimum_distance": 9.216568,
+            "pairs": {
+              "keyword/constant": 13.808229,
+              "keyword/type": 50.84751,
+              "keyword/func": 49.868511,
+              "keyword/string": 11.999832,
+              "constant/type": 43.110058,
+              "constant/func": 46.719283,
+              "constant/string": 10.875487,
+              "type/func": 9.216568,
+              "type/string": 46.119385,
+              "func/string": 41.711733
+            }
+          }
+        ]
+      }
+    }
+  }
+}
