@@ -1,0 +1,10 @@
+{
+  "library": {
+    "name": "Copper & paper",
+    "enabled": true,
+    "retryCount": 3,
+    "fallback": null,
+    "tags": ["notes", "references", "drafts"],
+    "paths": { "root": "./documents", "cache": "./.cache" }
+  }
+}

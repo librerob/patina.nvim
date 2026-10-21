@@ -1,0 +1,43 @@
+name: Verify
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  palette:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python tools/build.py --check
+      - run: python tests/contrast.py
+  neovim:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        version: [v0.10.4, stable]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Neovim from official releases
+        env:
+          NVIM_VERSION: ${{ matrix.version }}
+        run: |
+          curl --fail --location --retry 3 "https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/nvim-linux-x86_64.tar.gz" -o /tmp/nvim.tar.gz
+          tar xzf /tmp/nvim.tar.gz -C /tmp
+          echo /tmp/nvim-linux-x86_64/bin >> "$GITHUB_PATH"
+      - run: nvim --headless -u NONE -l tests/highlights.lua
+      - run: python -m pip install pillow msgpack
+      - run: python tests/ui.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: neovim-${{ matrix.version }}
+          path: test-results/
