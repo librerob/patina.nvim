@@ -31,16 +31,17 @@ def run():
                 '--override','font_family=DejaVu Sans Mono','--override','font_size=15',
                 '--override','initial_window_width=1050','--override','initial_window_height=620',
                 '--override','remember_window_size=no','--override','confirm_os_window_close=0',
-                '--title','Verdelle terminal test',sys.executable,str(child)],stdout=subprocess.DEVNULL,stderr=subprocess.PIPE)
+                '--title',f'Verdelle terminal test {mode}',sys.executable,str(child)],stdout=subprocess.DEVNULL,stderr=subprocess.PIPE)
             try:
                 window=None
-                for _ in range(100):
-                    found=subprocess.run(['xdotool','search','--onlyvisible','--pid',str(process.pid)],capture_output=True,text=True)
+                deadline=time.monotonic()+25
+                while time.monotonic()<deadline:
+                    found=subprocess.run(['xdotool','search','--onlyvisible','--name',f'^Verdelle terminal test {mode}$'],capture_output=True,text=True)
                     if found.returncode==0 and found.stdout.strip():
                         window=found.stdout.splitlines()[-1];break
                     if process.poll() is not None:
                         raise RuntimeError(process.stderr.read().decode())
-                    time.sleep(.05)
+                    time.sleep(.1)
                 assert window,'Kitty window not found'
                 path=OUT/f'kitty-{mode}.png'
                 for _ in range(40):
